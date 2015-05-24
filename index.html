@@ -1,1 +1,44 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="pezy's homepage.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <meta name="keywords" content="pezy, C++, blog">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="./typo.css"/>
+    <title>pezy's homepage</title>
+    <style>
+        code{ color: #304f4e; }
+        body {
+            min-width: 200px;
+            max-width: 790px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        pre{white-space:pre-wrap;}
+
+        i.serif{ text-transform:lowercase; color:#304f4e; }
+        :-moz-any(h1, h2, h3, h4, h5, h5) i.serif{ text-transform: capitalize; }
+        i.serif:hover{ color:inherit; }
+
+        #wrapper{ padding:5% 10%; position:relative;}
+        #tagline{ color:#999; font-size:1em; margin:-2em 0 2em; padding-bottom:2em; border-bottom:3px double #eee; }
+
+        @media only screen and (max-width: 640px) {
+            table{ word-break:break-all;word-wrap:break-word;font-size:12px; }
+            .typo table th, .typo table td, .typo-table th, .typo-table td .typo table caption {
+                padding: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper" class="typo typo-selection">
+    <h1><i class="serif">pezy</i> 就爱瞎折腾</h1><br/>
+    <h2 id="tagline" class="serif">时常胡言乱语，时常跟人较真，时常拾人牙慧，就是不干正事。</h2>
+    <p>正经的说，我目前是一名 C++ 程序员。在某石油企业默默无闻地从事三维图形渲染方面的工作。</p>
+    <p>这个页面借助 <a href="https://pages.github.com/"><i class="serif">Github Pages</i></a> 以及 <a href="http://typo.sofi.sh/"><i class="serif">typo.css</i></a> 的力量搭建。在此由衷的感谢他们的劳动成果。正如标题所言，我就爱瞎折腾，而折腾了半天，最后仍然爱不释手的仍然是它们。希望有一天我也可以为它们共享一份自己的力量。</p>
+</div>
+</body>
+</html>
