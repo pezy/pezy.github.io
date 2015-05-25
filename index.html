@@ -17,6 +17,16 @@
             padding: 30px;
         }
         pre{white-space:pre-wrap;}
+        .nav {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+        .nav li {
+            display: inline-block;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
 
         i.serif{ text-transform:lowercase; color:#304f4e; }
         :-moz-any(h1, h2, h3, h4, h5, h5) i.serif{ text-transform: capitalize; }
@@ -37,6 +47,26 @@
 <div id="wrapper" class="typo typo-selection">
     <h1><i class="serif">pezy</i> 就爱瞎折腾</h1><br/>
     <h2 id="tagline" class="serif">时常胡言乱语，时常跟人较真，时常拾人牙慧，就是不干正事。</h2>
+    <ul class="nav">
+        <li>
+            <a href="https://github.com/pezy/blog/wiki/"><i class="serif">WIKI</i></a>
+        </li>
+        <li>
+            <a href="/blog"><i class="serif">博客</i></a>
+        </li>
+        <li>
+            <a href="http://www.douban.com/people/pezy/"><i class="serif">豆瓣</i></a>
+        </li>
+        <li>
+            <a href="http://www.zhihu.com/people/pezy"><i class="serif">知乎</i></a>
+        </li>
+        <li>
+            <a href="http://segmentfault.com/blog/pezy/"><i class="serif">C/C++ 的奇技淫巧(雕虫小技)</i></a>
+        </li>
+        <li>
+            <a href="/love"><i class="serif">周年纪念</i></a>
+        </li>
+    </ul>
     <h2><i class="serif">C++</i> 最新笔记</h2>
     <ul>
         <li>
@@ -47,5 +77,20 @@
     </ul>
 
 </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES * * */
+var disqus_shortname = 'pezy';
+var disqus_identifier = 'index';
+var disqus_url = 'http://pezy.github.io/';
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </body>
 </html>
