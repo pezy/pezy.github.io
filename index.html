@@ -10,66 +10,65 @@
     <title>pezy's homepage</title>
     <style>
         code{ color: #304f4e; }
-        body {
-            min-width: 200px;
-            max-width: 790px;
-            margin: 0 auto;
-            padding: 30px;
-        }
+        a { color: #304f4e; border-bottom: 1px solid #0066bb !important; }
+        body { min-width: 200px; max-width: 790px; margin: 0 auto; padding: 30px; }
         pre{white-space:pre-wrap;}
-        .nav {
-            padding-left: 0;
-            margin-bottom: 0;
-            list-style: none;
-        }
-        .nav li {
-            display: inline-block;
-            margin-left: 5px;
-            margin-right: 5px;
-        }
+        .un_styled { list-style-type: none !important; }
+        .nav { padding-left: 0; margin-bottom: 0; list-style: none; border-bottom: 3px double #eee; }
+        .nav li { display: inline-block; margin-left: 5px; margin-right: 5px; }
+        li time { color: #666; font-family: monospace; font-size: 14px; }
+        .header img { float: right; width: 72px; height: 72px; border-radius: 48px; }
+        .header h1 { position: relative; top: 10px; }
 
-        i.serif{ text-transform:lowercase; color:#304f4e; }
+        i.serif{ text-transform:lowercase; color:#0066bb; }
         :-moz-any(h1, h2, h3, h4, h5, h5) i.serif{ text-transform: capitalize; }
         i.serif:hover{ color:inherit; }
 
         #wrapper{ padding:5% 10%; position:relative;}
-        #tagline{ color:#999; font-size:1em; margin:-2em 0 2em; padding-bottom:2em; border-bottom:3px double #eee; }
+        #tag_line{ color:#999; font-size:1em; margin:-2em 0 2em; padding-bottom:2em; border-bottom:3px double #eee; }
+        #links{ position:relative; }
 
         @media only screen and (max-width: 640px) {
             table{ word-break:break-all;word-wrap:break-word;font-size:12px; }
             .typo table th, .typo table td, .typo-table th, .typo-table td .typo table caption {
                 padding: 0.5em;
             }
+            #links{ display:none; }
         }
     </style>
 </head>
 <body>
 <div id="wrapper" class="typo typo-selection">
-    <h1><i class="serif">pezy</i> 就爱瞎折腾</h1><br/>
-    <h2 id="tagline" class="serif">时常胡言乱语，时常跟人较真，时常拾人牙慧，就是不干正事。</h2>
-    <ul class="nav">
-        <li>
-            <a href="/blog"><i class="serif">博客</i></a>
-        </li>
-        <li>
-            <a href="http://www.douban.com/people/pezy/"><i class="serif">豆瓣</i></a>
-        </li>
-        <li>
-            <a href="http://www.zhihu.com/people/pezy"><i class="serif">知乎</i></a>
-        </li>
-        <li>
-            <a href="http://segmentfault.com/blog/pezy/"><i class="serif">C/C++ 的奇技淫巧(雕虫小技)</i></a>
-        </li>
-        <li>
-            <a href="/love"><i class="serif">周年纪念</i></a>
-        </li>
-    </ul>
+    <div class="header">
+        <img src="me.png" alt="pezy">
+        <h1><i class="serif">pezy</i> 就爱瞎折腾</h1><br/>
+        <h2 id="tag_line" class="serif">时而胡言乱语，时而跟人较真，时而拾人牙慧，就是不干正事。</h2>
+    </div>
+    <div id="links" class="nav">
+        <ul>
+            <li>
+                <a href="/blog">博客</a>
+            </li>
+            <li>
+                <a href="http://www.douban.com/people/pezy/">豆瓣</a>
+            </li>
+            <li>
+                <a href="http://www.zhihu.com/people/pezy">知乎</a>
+            </li>
+            <li>
+                <a href="http://segmentfault.com/blog/pezy/"><i class="serif">C/C++</i> 笔记</a>
+            </li>
+            <li>
+                <a href="/love">周年纪念</a>
+            </li>
+        </ul>
+    </div>
     <h2><i class="serif">C++</i> 最新笔记</h2>
-    <ul>
+    <ul class="un_styled">
         <li>
             <time>2015-05-25</time>
-             -
-            <a href="cpp/cpp-exception.html">关于 C++ 的异常</a>
+             —
+            <a href="cpp/cpp-exception.html">关于 <i class="serif">C++</i> 的异常</a>
         </li>
     </ul>
 
