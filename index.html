@@ -5,8 +5,9 @@
     <meta name="description" content="pezy's homepage.">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <meta name="keywords" content="pezy, C++, blog">
-    <link rel="shortcut icon" href="favicon.png">
-    <link rel="stylesheet" href="./typo.css"/>
+    <link rel="shortcut icon" href="res/favicon.png">
+    <link rel="stylesheet" href="css/typo.css"/>
+    <link rel="stylesheet" href="css/skeleton.css"/>
     <title>pezy's homepage</title>
     <style>
         code{ color: #304f4e; }
@@ -15,6 +16,7 @@
         pre{white-space:pre-wrap;}
         .un_styled { list-style-type: none !important; }
         .nav { padding-left: 0; margin-bottom: 0; list-style: none; border-bottom: 3px double #eee; }
+        .nav .button { font-weight: normal; font-size: 15px; border-bottom: 1px solid #bbb !important; }
         .nav li { display: inline-block; margin-left: 5px; margin-right: 5px; }
         li time { color: #666; font-family: monospace; font-size: 14px; }
         .header img { float: right; width: 72px; height: 72px; border-radius: 48px; }
@@ -42,29 +44,23 @@
 <body>
 <div id="wrapper" class="typo typo-selection">
     <div class="header">
-        <img src="me.png" alt="pezy">
+        <img src="res/me.png" alt="pezy">
         <h1><i class="serif">pezy</i> 就爱瞎折腾</h1><br/>
         <h2 id="tag_line" class="serif">时而胡言乱语，时而跟人较真，时而拾人牙慧，就是不干正事。</h2>
     </div>
     <div id="links" class="nav">
         <ul>
             <li>
-                <a href="/blog">博客</a>
+                <a class="button" href="/blog">博客</a>
             </li>
             <li>
-                <a href="reading.html">读书笔记</a>
+                <a class="button" href="reading.html">书单</a>
             </li>
             <li>
-                <a href="http://www.douban.com/people/pezy/">豆瓣</a>
+                <a class="button" href="http://segmentfault.com/blog/pezy/"><i class="serif">C/C++</i> 笔记</a>
             </li>
             <li>
-                <a href="http://www.zhihu.com/people/pezy">知乎</a>
-            </li>
-            <li>
-                <a href="http://segmentfault.com/blog/pezy/"><i class="serif">C/C++</i> 笔记</a>
-            </li>
-            <li>
-                <a href="/love">周年纪念</a>
+                <a class="button" href="/love">纪念</a>
             </li>
         </ul>
     </div>
