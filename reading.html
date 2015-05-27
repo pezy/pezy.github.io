@@ -11,7 +11,7 @@
     <script type="text/javascript" src="http://www.douban.com/js/api.js"></script>
     <script type="text/javascript" src="http://www.douban.com/js/api-parser.js"></script>
     <script type="text/javascript">
-        function showBook(id) {
+        function showBook(id, url) {
             $.getJSON("https://api.douban.com/v2/book/"+id+"?alt=xd&callback=?", function(book) {
                 var title = book.title ? book.title : "";
                 var tmp;
@@ -19,7 +19,7 @@
                 tmp += "<a class='book-cover' href="+book.alt+">";
                 tmp += "<img src="+book.image+" alt="+title+"></a>";
                 tmp += "<div class='book-meta'>";
-                tmp += "<a class='book-title' href="+book.alt+">"+title+"</a>";
+                tmp += "<a class='book-title' href="+url+">"+title+"</a>";
                 if (book.author)
                     tmp += "<p class='book-author'>"+book.author+"</p>";
                 if (book.rating.average)
@@ -55,9 +55,11 @@
     <h2><i class="serif">pezy</i> 的书单</h2>
 </div>
 <script type="text/javascript">
-    showBook("24089577");
-    showBook("20432061");
+    $.getJSON("data/book.json", function( book ) {
+        $.each( book, function (key, value) {
+            showBook(key, value);
+        });
+    });
 </script>
-
 </body>
 </html>

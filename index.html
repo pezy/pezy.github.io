@@ -7,7 +7,6 @@
     <meta name="keywords" content="pezy, C++, blog">
     <link rel="shortcut icon" href="res/favicon.png">
     <link rel="stylesheet" href="css/typo.css"/>
-    <link rel="stylesheet" href="css/skeleton.css"/>
     <title>pezy's homepage</title>
     <style>
         code{ color: #304f4e; }
@@ -16,11 +15,16 @@
         pre{white-space:pre-wrap;}
         .un_styled { list-style-type: none !important; }
         .nav { padding-left: 0; margin-bottom: 0; list-style: none; border-bottom: 3px double #eee; }
-        .nav .button { font-weight: normal; font-size: 15px; border-bottom: 1px solid #bbb !important; }
         .nav li { display: inline-block; margin-left: 5px; margin-right: 5px; }
         li time { color: #666; font-family: monospace; font-size: 14px; }
         .header img { float: right; width: 72px; height: 72px; border-radius: 48px; }
         .header h1 { position: relative; top: 10px; }
+
+        .button { display: inline-block; height: 38px; padding: 0 30px; color: #555; text-align: center; font-size: 15px;
+            font-weight: 300; line-height: 38px; letter-spacing: .1rem; text-transform: uppercase; text-decoration: none;
+            white-space: nowrap; background-color: transparent; border-radius: 4px; border: 1px solid #bbb !important;
+            cursor: pointer; box-sizing: border-box; }
+        .button:hover, .button:focus { color: #333; border-color: #888; outline: 0; }
 
         i.serif{ text-transform:lowercase; color:#0066bb; }
         :-moz-any(h1, h2, h3, h4, h5, h5) i.serif{ text-transform: capitalize; }

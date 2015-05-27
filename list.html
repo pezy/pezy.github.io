@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/typo.css"/>
     <link rel="shortcut icon" href="res/favicon.png">
     <title>Links List — pezy</title>
+    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
     <style>
         code{ color:#0066bb; }
         a { color: #0066bb; }
@@ -84,42 +85,43 @@
         i.serif:hover{ color:inherit; }
 
         #wrapper{ padding:5% 10%; position:relative;}
+
+        @media only screen and (max-width: 640px) {
+            table{ word-break:break-all;word-wrap:break-word;font-size:12px; }
+            .typo table th, .typo table td, .typo-table th, .typo-table td .typo table caption {
+                padding: 0.5em;
+            }
+            .header img{ display:none; }
+            .header h1{ top: 0; }
+            #state, #brief { display:none; }
+        }
     </style>
 </head>
 <body>
 <div id="wrapper" class="typo typo-selection">
     <h2><i class="serif">pezy</i> 的清单</h2>
 </div>
-<div class="question-summary">
-    <div class="cp">
-        <div class="views">
-            <div class="mini-counts">
-                <span title="1 votes">1</span>
-            </div>
-            <div>views</div>
-        </div>
-    </div>
-    <div class="summary">
-        <h3> <a href="http://getskeleton.com/"> Skeleton_ Responsive CSS Boilerplate </a></h3>
-        <div class="tags">css</div>
-        <div class="started">A dead simple, responsive boilerplate</div>
-    </div>
-</div>
-<div class="question-summary">
-    <div class="cp">
-        <div class="views">
-            <div class="mini-counts">
-                <span title="0 votes">0</span>
-            </div>
-            <div>views</div>
-        </div>
-    </div>
-    <div class="summary">
-        <h3> <a href="https://www.scullinsteel.com/apple2/"> An Apple II Emulator in JavaScript </a></h3>
-        <div class="tags">JavaScript</div>
-        <div class="started">超级有意思，里面好多很古老的游戏</div>
-    </div>
-</div>
+<script type="text/javascript">
+    $.getJSON("data/list.json", function( data ) {
+        var item = [];
+        $.each( data, function( key, link ) {
+            item.push("<div id='state' class='cp'><div class='views'><div class='mini-counts'>");
+            item.push("<span title='"+ link.view + " votes'>"+ link.view +"</span>");
+            item.push("</div><div>views</div></div></div>")
+            item.push("<div class='summary'>");
+            item.push("<h3><a href='"+ link.url +"'>"+ link.title +"</a></h3>");
+            $.each( link.tags, function( key, tag ) {
+                item.push("<div class='tags'>"+ tag +"</div>");
+            });
+            item.push("<div id='brief' class='started'>"+ link.brief +"</div>");
+            item.push("</div>");
+        });
 
+        $( "<div/>", {
+            "class": "question-summary",
+            html: item.join( "" )
+        }).appendTo( "body" );
+    });
+</script>
 </body>
 </html>
