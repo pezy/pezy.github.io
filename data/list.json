@@ -7,9 +7,9 @@
         "view": 0
     },
     {
-        "title": "A cool website which randomly generates 3d insects"
+        "title": "A cool website which randomly generates 3d insects",
         "url": "http://www.levitated.net/exhibit/organicMachine/isoBugsAMODA.swf",
-        "tags": ["fun", "interesting"]
+        "tags": ["fun", "interesting"],
         "brief": "逼真的三维小昆虫，点击一下换一种",
         "view": 0
     }
