@@ -54,8 +54,12 @@
             font-size: 16px;
             font-weight: 400;
             line-height: 1.3;
+            margin-top: 0;
             margin-bottom: .35em;
             cursor: pointer;
+        }
+        .question-summary .summary a {
+            border-bottom: 0;
         }
         .tags {
             line-height: 1;
@@ -108,20 +112,20 @@
     $.getJSON("data/list.json", function( data ) {
         var item = [];
         $.each( data, function( key, link ) {
-            item.push("<div id='state' class='cp'><div class='views'><div class='mini-counts'>");
+            item.push("<div class='question-summary'><div id='state' class='cp'><div class='views'><div class='mini-counts'>");
             item.push("<span title='"+ link.view + " votes'>"+ link.view +"</span>");
-            item.push("</div><div>views</div></div></div>")
+            item.push("</div><div>views</div></div></div>");
             item.push("<div class='summary'>");
             item.push("<h3><a href='"+ link.url +"'>"+ link.title +"</a></h3>");
             $.each( link.tags, function( key, tag ) {
                 item.push("<div class='tags'>"+ tag +"</div>");
             });
             item.push("<div id='brief' class='started'>"+ link.brief +"</div>");
-            item.push("</div>");
+            item.push("</div></div>");
         });
 
         $( "<div/>", {
-            "class": "question-summary",
+            "class": "typo typo-selection",
             html: item.join( "" )
         }).appendTo( "body" );
     });
