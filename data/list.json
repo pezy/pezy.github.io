@@ -1,5 +1,12 @@
 [
     {
+        "title": "Stanford Javascript Crypto Library",
+        "url": "http://bitwiseshiftleft.github.io/sjcl/",
+        "tags": ["javascript", "interesting"],
+        "brief": "这个加密手法很有意思",
+        "view": 0
+    },
+    {
         "title": "Real World Haskell 中文版",
         "url": "http://rwh.readthedocs.org/en/latest/",
         "tags": ["haskell"],
