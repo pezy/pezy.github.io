@@ -1,30 +1,50 @@
 [
-    {
-        "title": "Stanford Javascript Crypto Library",
-        "url": "http://bitwiseshiftleft.github.io/sjcl/",
-        "tags": ["javascript", "interesting"],
-        "brief": "这个加密手法很有意思",
-        "view": 0
-    },
-    {
-        "title": "Real World Haskell 中文版",
-        "url": "http://rwh.readthedocs.org/en/latest/",
-        "tags": ["haskell"],
-        "brief": "看起来又是一本 Haskell 的好书",
-        "view": 0
-    },
-    {
-        "title": "A cool website which randomly generates 3d insects",
-        "url": "http://www.levitated.net/exhibit/organicMachine/isoBugsAMODA.swf",
-        "tags": ["fun", "interesting"],
-        "brief": "逼真的三维小昆虫，点击一下换一种",
-        "view": 0
-    },
-    {
-        "title": "WebGL Fundamentals",
-        "url": "http://webglfundamentals.org/",
-        "tags": ["WebGL"],
-        "brief": "看起来不错的 WebGL 基础教程",
-        "view": 0
-    }
+  {
+    "title": "Stanford Javascript Crypto Library",
+    "url": "http://bitwiseshiftleft.github.io/sjcl/",
+    "tags": [
+      "javascript",
+      "interesting"
+    ],
+    "brief": "这个加密手法很有意思",
+    "view": 0
+  },
+  {
+    "title": "Real World Haskell 中文版",
+    "url": "http://rwh.readthedocs.org/en/latest/",
+    "tags": [
+      "haskell"
+    ],
+    "brief": "看起来又是一本 Haskell 的好书",
+    "view": 0
+  },
+  {
+    "title": "A cool website which randomly generates 3d insects",
+    "url": "http://www.levitated.net/exhibit/organicMachine/isoBugsAMODA.swf",
+    "tags": [
+      "fun",
+      "interesting"
+    ],
+    "brief": "逼真的三维小昆虫，点击一下换一种",
+    "view": 0
+  },
+  {
+    "title": "WebGL Fundamentals",
+    "url": "http://webglfundamentals.org/",
+    "tags": [
+      "WebGL"
+    ],
+    "brief": "看起来不错的 WebGL 基础教程",
+    "view": 0
+  },
+  {
+    "title": "SceneJS Tutorials",
+    "url": "http://xeolabs.com/articles/learning-scenejs/",
+    "tags": [
+      "WebGL",
+      "SceneJS"
+    ],
+    "brief": "SceneJS 的教程",
+    "view": 0
+  }
 ]
