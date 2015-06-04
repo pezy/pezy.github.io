@@ -19,5 +19,12 @@
         "tags": ["fun", "interesting"],
         "brief": "逼真的三维小昆虫，点击一下换一种",
         "view": 0
+    },
+    {
+        "title": "WebGL Fundamentals",
+        "url": "http://webglfundamentals.org/",
+        "tags": ["WebGL"],
+        "brief": "看起来不错的 WebGL 基础教程",
+        "view": 0
     }
 ]
