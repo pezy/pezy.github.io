@@ -1,12 +1,12 @@
 [
   {
-    "title": "Stanford Javascript Crypto Library",
-    "url": "http://bitwiseshiftleft.github.io/sjcl/",
+    "title": "Meteor",
+    "url": "https://www.meteor.com/",
     "tags": [
       "javascript",
-      "interesting"
+      "HTML"
     ],
-    "brief": "这个加密手法很有意思",
+    "brief": "一种全新的前后端数据通信方式",
     "view": 0
   },
   {
@@ -16,16 +16,6 @@
       "haskell"
     ],
     "brief": "看起来又是一本 Haskell 的好书",
-    "view": 0
-  },
-  {
-    "title": "A cool website which randomly generates 3d insects",
-    "url": "http://www.levitated.net/exhibit/organicMachine/isoBugsAMODA.swf",
-    "tags": [
-      "fun",
-      "interesting"
-    ],
-    "brief": "逼真的三维小昆虫，点击一下换一种",
     "view": 0
   },
   {
