@@ -1,5 +1,14 @@
 [
   {
+    "title": "Clean Thesis",
+    "url": "http://cleanthesis.der-ric.de/",
+    "tags": [
+      "LaTeX"
+    ],
+    "brief": "一个简洁的 Latex 论文模板",
+    "view": 0
+  },
+  {
     "title": "Meteor",
     "url": "https://www.meteor.com/",
     "tags": [
