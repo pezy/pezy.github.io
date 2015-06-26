@@ -1,5 +1,23 @@
 [
   {
+    "title": "JavaScript in one picture",
+    "url": "https://raw.githubusercontent.com/coodict/javascript-in-one-pic/master/js%20in%20one%20pic.png",
+    "tags": [
+      "JavaScript"
+    ],
+    "brief": "一图胜千言，此之谓也",
+    "view": 0
+  },
+  {
+    "title": "ViziCities",
+    "url": "http://vizicities.com/",
+    "tags": [
+      "WebGL"
+    ],
+    "brief": "将二维地图三维化，很惊艳",
+    "view": 0
+  },
+  {
     "title": "Clean Thesis",
     "url": "http://cleanthesis.der-ric.de/",
     "tags": [
