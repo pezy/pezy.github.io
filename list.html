@@ -14,6 +14,10 @@
         html{ background:#fff; }
         body { min-width: 200px; max-width: 790px; margin: 0 auto; padding: 30px; }
         pre{white-space:pre-wrap;}
+        #question-mini-list {
+            overflow: auto;
+            margin-bottom: 30px;
+        }
         .question-summary {
             padding: 12px 0 10px 0;
             border-bottom: 1px solid #e0e0e0;
@@ -125,6 +129,7 @@
         });
 
         $( "<div/>", {
+            "id": "question-mini-list",
             "class": "typo typo-selection",
             html: item.join( "" )
         }).appendTo( "body" );
