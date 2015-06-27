@@ -1,5 +1,15 @@
 [
   {
+    "title": "highcharts",
+    "url": "http://www.highcharts.com/",
+    "tags": [
+      "javascript",
+      "chart"
+    ],
+    "brief": "非常棒的图表展示控件",
+    "view": 0
+  },
+  {
     "title": "Meteor",
     "url": "https://www.meteor.com/",
     "tags": [
