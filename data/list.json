@@ -1,4 +1,83 @@
-[
+﻿[
+  {
+    "title": "正则表达式30分钟入门教程",
+    "url": "http://deerchao.net/tutorials/regex/regex.htm",
+    "tags": [
+      "Regex"
+    ],
+    "brief": "可据此粗略的了解正则",
+    "view": 0
+  },
+  {
+    "title": "Scratchapixel v2.0",
+    "url": "http://www.scratchapixel.com/",
+    "tags": [
+      "CG"
+    ],
+    "brief": "一个很不错的图形学教学网站",
+    "view": 0
+  },
+  {
+    "title": "OGL dev",
+    "url": "http://ogldev.atspace.co.uk/",
+    "tags": [
+      "OpenGL"
+    ],
+    "brief": "Modern OpenGL Tutorials",
+    "view": 0
+  },
+  {
+    "title": "Semantic UI",
+    "url": "http://www.semantic-ui.com/",
+    "tags": [
+      "CSS",
+      "FrontSide"
+    ],
+    "brief": "又一个前端界面库",
+    "view": 0
+  },
+  {
+    "title": "angular2-education",
+    "url": "https://github.com/timjacobi/angular2-education",
+    "tags": [
+      "angular",
+      "JavaScript",
+      "FrontSide"
+    ],
+    "brief": "学习 angular2 的资料",
+    "view": 0
+  },
+  {
+    "title": "Wt",
+    "url": "http://www.webtoolkit.eu/wt/",
+    "tags": [
+      "C++",
+      "Qt",
+      "Web"
+    ],
+    "brief": "用 C++ 写 Web 的框架",
+    "view": 0
+  },
+  {
+    "title": "Atom-guide",
+    "url": "https://github.com/turingou/atom-guide/",
+    "tags": [
+      "atom",
+      "guide"
+    ],
+    "brief": "中文版（未翻译完）的Atom指南",
+    "view": 0
+  },
+  {
+    "title": "七天学会 NodeJS",
+    "url": "http://nqdeng.github.io/7-days-nodejs/",
+    "tags": [
+      "javascript",
+      "node.js"
+    ],
+    "brief": "虽然是庸俗的题目，但为了解大略可一观",
+    "view": 0
+  },
   {
     "title": "highcharts",
     "url": "http://www.highcharts.com/",
