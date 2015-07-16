@@ -1,5 +1,15 @@
 ﻿[
   {
+    "title": "Ceramic",
+    "url": "http://ceramic.github.io/",
+    "tags": [
+      "Common Lisp",
+      "web"
+    ],
+    "brief": "用 Common Lisp 来写桌面程序",
+    "view": 0
+  },
+  {
     "title": "正则表达式30分钟入门教程",
     "url": "http://deerchao.net/tutorials/regex/regex.htm",
     "tags": [
