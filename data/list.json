@@ -1,5 +1,14 @@
 ﻿[
   {
+    "title": "getAwesomeness",
+    "url": "http://getawesomeness.com/",
+    "tags": [
+      "Awesome"
+    ],
+    "brief": "汇聚 Github 上的全部 Awesome 系列",
+    "view": 0
+  },
+  {
     "title": "Ceramic",
     "url": "http://ceramic.github.io/",
     "tags": [
