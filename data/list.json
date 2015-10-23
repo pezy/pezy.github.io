@@ -1,4 +1,13 @@
-﻿[
+[
+  {
+    "title": "FontReach",
+    "url": "http://www.fontreach.com/",
+    "tags": [
+      "Font"
+    ],
+    "brief": "查看最流行的字体, 以及查询你看中的字体被哪个网站使用.",
+    "view": 0
+  },
   {
     "title": "Json Parser Online",
     "url": "http://json.parser.online.fr/",
