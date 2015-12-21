@@ -1,5 +1,24 @@
 [
   {
+    "title": "The little book about OS development",
+    "url": "http://littleosbook.github.io/#setting-up-a-stack",
+    "tags": [
+      "OS"
+    ],
+    "brief": "关于操作系统开发的小册子.",
+    "view": 0
+  },
+  {
+    "title": "Learning JavaScript Design Patterns",
+    "url": "http://addyosmani.com/resources/essentialjsdesignpatterns/book/",
+    "tags": [
+      "JavaScript",
+      "Design Patterns"
+    ],
+    "brief": "JavaScript 的设计模式.",
+    "view": 0
+  },
+  {
     "title": "sigmajs",
     "url": "http://sigmajs.org/",
     "tags": [
