@@ -1,5 +1,14 @@
 [
   {
+    "title": "stanford-graphics-cs148",
+    "url": "https://graphics.stanford.edu/wikis/cs148-10-fall/FrontPage",
+    "tags": [
+      "Graphics"
+    ],
+    "brief": "斯坦福图形学课程主页.",
+    "view": 0
+  },
+  {
     "title": "The little book about OS development",
     "url": "http://littleosbook.github.io/#setting-up-a-stack",
     "tags": [
