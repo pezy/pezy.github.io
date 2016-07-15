@@ -14,11 +14,22 @@ svn propset svn:ignore ignore.txt .
 
 千万注意最后一个点.
 
-查看包含 ignore 的状态列表([I]代表 ignore 的文件):
+还有一种更直接的方式编辑当前目录下的 ignore file:
 
 ```sh
-svn status --no-ignore
+svn propedit svn:ignore .
 ```
+
+> 这里值得注意的是, 可能会出一个错误: `svn: E205007`. 需要在环境变量里设置一个 `SVN_EDITOR` , 譬如在 Linux 下我们常使用 vim 的话:
+>
+> ```sh
+> vim ~/.bashrc
+> export SVN_EDITOR=vim
+> :wq
+> source ~/.bashrc
+> ```
+>
+> 在执行上述命令, 就会进入 vim 编辑 ignore 列表了.
 
 ### 解决冲突
 
@@ -43,3 +54,11 @@ svn resolve --accept=theirs-full filepath
 ```sh
 svn revert thefile
 ```
+## 删除服务器上的文件
+
+当有些 ignore file 被误上传上服务器, 该如何将其删除呢?
+
+```sh
+svn delete del_file --force
+```
+
