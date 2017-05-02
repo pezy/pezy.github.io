@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="devnotes">
+    <meta name="author" content="pezy">
+    <link rel="icon" type="image/png" href="/res/favicon.png">
+
+        <title>有序数组连续计算中位数 · devnotes</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" type="text/css">
+
+    <link rel="stylesheet" href="/theme/css/main.css">
+
+    <link rel="stylesheet" href="/theme/css/solarized-light.css">
+
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <div class="container" id="wrap">
+      <nav id="navbar" class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+      <!--navbar-header-->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="">devnotes</a>
+      </div> <!--navbar-header-->
+
+      <!-- Search Box -->
+
+      <!--Menuitems, collapable-->
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right" id="menuitem-list">
+                <li >
+                  <a href="/" >Home</a>
+                </li>
+
+              <li class="btn-group">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Archives<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li >
+                    <a href="/tags.html" >Tags</a>
+                  </li>
+                  <li >
+                    <a href="/categories.html" >Categories</a>
+                  </li>
+                  <li >
+                    <a href="/archives.html" >Chronological</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="btn-group">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li >
+                    <a href="http://blog.devnotes.org"     target="_blank"
+>old Blog</a>
+                  </li>
+                  <li >
+                    <a href="http://devnotes.org/diary"     target="_blank"
+>diary</a>
+                  </li>
+                  <li >
+                    <a href="../lab/reading.html" >reading</a>
+                  </li>
+                  <li >
+                    <a href="../lab/list.html" >list</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="btn-group">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li >
+                    <a href="mailto: pezy.dev@gmail.com" >Email</a>
+                  </li>
+                  <li >
+                    <a href="http://github.com/pezy"     target="_blank"
+>Github</a>
+                  </li>
+                  <li >
+                    <a href="https://www.zhihu.com/people/pezy"     target="_blank"
+>Zhihu</a>
+                  </li>
+                </ul>
+              </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div> <!--container-->
+  </nav>
+
+
+    <div class="container">
+      <div class="col-md-2">
+      </div>
+
+      <div class="col-md-8">
+        <div class="row">
+              <div class="page-header">
+        <h1><a href="/2016/you-xu-shu-zu-lian-xu-ji-suan-zhong-wei-shu.html">有序数组连续计算中位数</a></h1>
+    </div>
+
+        </div>
+
+        <div class="row">
+
+    <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/algorithm.html">algorithm</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month04">04</a>-<a href="/archives.html#Year2016Month04">22</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+  <hr/>
+
+  <div id="article_content">
+    <p>有一个需求, 是绘制坐标轴刻度时遇到的. 因为坐标轴刻度随时需要保证疏密得当, 所以有时会采取以下策略:</p>
+<ol>
+<li>获取总长度, 并根据首尾的刻度值, 计算中间可取整的刻度值, 如 1 - 78 中间, 可按 10 取整, 即 10, 20, 30 ... 70 这样.</li>
+<li>设一个刻度总和的变量 <code>sum</code>, 试探性的绘制位于中间的刻度, 并计算该刻度(字符串)在画布上的长度, 将该长度累加至 <code>sum</code>,  并与总长度比较. </li>
+<li>如果小于总长度, 绘制该刻度, 并借助首尾刻度, 以及该刻度, 继续求出两个刻度值. (位于首刻度与该刻度中间, 以及该刻度与尾刻度中间). 递归进入上一步骤.</li>
+<li>如果大于总长度, 则退出.</li>
+</ol>
+<p>这个问题可以抽象成, 给定一个有序序列(或直接指定一对 <code>min</code> 和 <code>max</code>), 要求输出每一次相邻数字的中位数.(如果相邻数字差距仅为 1, 则不必输出). 用一张图来表示即为(以 2-15 为例):</p>
+<p><img alt="tree" src="..\img\tree.png"></p>
+<p>每一次的输出正好构成一颗二叉树, 且是一个二叉堆.</p>
+<p>简单说明下: 8 恰好是 2 和 15 的中位数, 然后 5 是 2 和 8 的中位数, 11 是 8 与 15 的中位数. 以此类推.</p>
+<p>那么我们的算法应该最终输出: [8 5 11 3 6 9 13 4 7 10 12 14].</p>
+<p>下面是我简单考虑后写出的一种实现, 基本满足了要求.</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;queue&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">GetMedianList</span><span class="p">(</span><span class="kt">int</span> <span class="n">min</span><span class="p">,</span> <span class="kt">int</span> <span class="n">max</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">min</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{};</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vecRst</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">q</span><span class="p">;</span>
+    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">max</span><span class="p">));</span>
+    <span class="k">do</span>
+    <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">range</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">range</span><span class="p">.</span><span class="n">first</span> <span class="o">+</span> <span class="n">range</span><span class="p">.</span><span class="n">second</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mid</span> <span class="o">!=</span> <span class="n">range</span><span class="p">.</span><span class="n">first</span><span class="p">)</span>
+            <span class="n">vecRst</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">mid</span><span class="p">);</span>
+        <span class="k">else</span>
+            <span class="k">continue</span><span class="p">;</span>
+        <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="n">range</span><span class="p">.</span><span class="n">first</span><span class="p">,</span> <span class="n">mid</span><span class="p">));</span>
+        <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="n">mid</span><span class="p">,</span> <span class="n">range</span><span class="p">.</span><span class="n">second</span><span class="p">));</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">());</span>
+
+    <span class="k">return</span> <span class="n">vecRst</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">GetMedianList</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>明眼人一看便知, 这是借用了 BFS 的思路, 借助队列实现的.</p>
+  </div>
+
+  <hr/>
+
+      <ul class="pager">
+        <li class="previous">
+          <a href="/2016/fu-dian-shu-zhuan-zi-fu-chuan-hou-qu-diao-duo-yu-de-ling.html">
+          &laquo; Newer</a>
+        </li>
+        <li class="next">
+          <a href="/2016/ruan-jian-kai-fa-de-wei-cheng.html">
+          Older &raquo;</a>
+        </li>
+      </ul>
+
+    <hr/>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+
+var disqus_config = function () {
+  this.page.url = '/2016/you-xu-shu-zu-lian-xu-ji-suan-zhong-wei-shu.html';  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = 'you-xu-shu-zu-lian-xu-ji-suan-zhong-wei-shu'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://devnotes-org.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+        <div class="row">
+        </div>
+
+      </div>
+
+      <div class="col-md-2">
+      </div>
+    </div>
+
+
+  </div>
+
+    <nav id="footer" class="navbar navbar-default">
+    <div class="container">
+        <p id="footer-text" class="navbar-text text-center">
+          <span id="engine">
+            Compiled using
+            <a href="http://docs.getpelican.com">Pelican</a>
+          </span>
+          <span id="theme">
+            with theme
+            <a href="http://github.com/yuex/pelican-chameleon">Chameleon</a>
+          </span>
+          <span id="bootstrap">
+            on top of
+            <a href="http://getbootstrap.com/">Bootstrap</a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </nav>
+
+
+</body>
+</html>

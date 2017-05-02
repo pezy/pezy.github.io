@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="devnotes">
+    <meta name="author" content="pezy">
+    <link rel="icon" type="image/png" href="/res/favicon.png">
+
+        <title>关于 C++ 的异常 · devnotes</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" type="text/css">
+
+    <link rel="stylesheet" href="/theme/css/main.css">
+
+    <link rel="stylesheet" href="/theme/css/solarized-light.css">
+
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <div class="container" id="wrap">
+      <nav id="navbar" class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+      <!--navbar-header-->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="">devnotes</a>
+      </div> <!--navbar-header-->
+
+      <!-- Search Box -->
+
+      <!--Menuitems, collapable-->
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right" id="menuitem-list">
+                <li >
+                  <a href="/" >Home</a>
+                </li>
+
+              <li class="btn-group">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Archives<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li >
+                    <a href="/tags.html" >Tags</a>
+                  </li>
+                  <li >
+                    <a href="/categories.html" >Categories</a>
+                  </li>
+                  <li >
+                    <a href="/archives.html" >Chronological</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="btn-group">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li >
+                    <a href="http://blog.devnotes.org"     target="_blank"
+>old Blog</a>
+                  </li>
+                  <li >
+                    <a href="http://devnotes.org/diary"     target="_blank"
+>diary</a>
+                  </li>
+                  <li >
+                    <a href="../lab/reading.html" >reading</a>
+                  </li>
+                  <li >
+                    <a href="../lab/list.html" >list</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="btn-group">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li >
+                    <a href="mailto: pezy.dev@gmail.com" >Email</a>
+                  </li>
+                  <li >
+                    <a href="http://github.com/pezy"     target="_blank"
+>Github</a>
+                  </li>
+                  <li >
+                    <a href="https://www.zhihu.com/people/pezy"     target="_blank"
+>Zhihu</a>
+                  </li>
+                </ul>
+              </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div> <!--container-->
+  </nav>
+
+
+    <div class="container">
+      <div class="col-md-2">
+      </div>
+
+      <div class="col-md-8">
+        <div class="row">
+              <div class="page-header">
+        <h1><a href="/2015/guan-yu-c-de-yi-chang.html">关于 C++ 的异常</a></h1>
+    </div>
+
+        </div>
+
+        <div class="row">
+
+    <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/cpp.html">cpp</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2015">2015</a>-<a href="/archives.html#Year2015Month05">05</a>-<a href="/archives.html#Year2015Month05">25</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+  <hr/>
+
+  <div id="article_content">
+    <p>大早起来看见知乎上关于 C++ 异常处理的<a href="http://www.zhihu.com/question/22889420">讨论</a>。立刻让我想起前几天和 <a href="https://github.com/Mooophy">@王月</a> 关于 <code>std::vector</code> 越界访问是否应该判断的讨论。</p>
+<p>当时王月认为不需要管它，因为在 C++ 里，使用 <code>operator[]</code> 去访问 <code>std::vector</code> 中元素时越界，是 UB 行为。同理，在自己封装的类里，这样类似的调用，如果调用者传入越界的 index, 也应该属于 UB。而我认为，UB 是语言层面的事情，如果是自己封装类，则需要考虑做判断，适时的抛出异常。</p>
+<p>我们当时并未针对异常展开探讨，而是将话题转移到软件工程上去了（我的思维跳跃了）。然而今天看到知乎上关于异常的讨论，我立刻想到那个场景，又好好想了下应该采取的策略。</p>
+<p>其实 STL 是给我们做了示范的：</p>
+<p>对于 <code>std::vector</code> 而言，<a href="http://en.cppreference.com/w/cpp/container/vector/operator_at"><code>operator[]</code></a> 不负责检查边界，而 <a href="http://en.cppreference.com/w/cpp/container/vector/at"><code>at()</code></a> 却负责检查，越界时会抛出 <code>std::out_of_range</code> 的标准异常。</p>
+<p>这一点细节将 C++ 的灵活体现的淋漓尽致。对于程序员能确保不越界，且需要极致的性能的地方，应该考虑使用 <code>operator[]</code> 的方式；不敢确保，属于暴露给上层的接口，且对于性能没有过分的苛求，则应该考虑使用 <code>at()</code>。</p>
+<p>STL 的 <code>at()</code> 是如何实现的？</p>
+<ul>
+<li>Visual Studio 2013:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">reference</span> <span class="nf">at</span><span class="p">(</span><span class="n">size_type</span> <span class="n">_Pos</span><span class="p">)</span>
+    <span class="p">{</span>   <span class="c1">// subscript mutable sequence with checking</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">_Pos</span><span class="p">)</span>
+        <span class="n">_Xran</span><span class="p">();</span> <span class="c1">// _Xout_of_range(&quot;invalid vector&lt;T&gt; subscript&quot;);</span>
+        <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_Myfirst</span> <span class="o">+</span> <span class="n">_Pos</span><span class="p">));</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>GCC 4.9.1:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">const_reference</span>
+<span class="nf">at</span><span class="p">(</span><span class="n">size_type</span> <span class="n">__n</span><span class="p">)</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="n">_M_range_check</span><span class="p">(</span><span class="n">__n</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)[</span><span class="n">__n</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kt">void</span>
+<span class="nf">_M_range_check</span><span class="p">(</span><span class="n">size_type</span> <span class="n">__n</span><span class="p">)</span> <span class="k">const</span>
+<span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">__n</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">())</span>
+    <span class="n">__throw_out_of_range_fmt</span><span class="p">(</span><span class="n">__N</span><span class="p">(</span><span class="s">&quot;vector::_M_range_check: __n &quot;</span>
+    <span class="s">&quot;(which is %zu) &gt;= this-&gt;size() &quot;</span>
+    <span class="s">&quot;(which is %zu)&quot;</span><span class="p">),</span>
+    <span class="n">__n</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>虽然实现细节略有不同，但这样的处理手法值得借鉴。另外，<code>size_type</code> 是 <code>unsigned int</code> 类型，从编译期杜绝了传入参数为负数的可能。</p>
+<p>所以，我的看法是，不应该畏惧使用异常，着重注意以下几个方面：</p>
+<ul>
+<li>C++11 多考虑可以使用 <code>noexcept</code> 关键字，避免歧义。</li>
+<li>对于无法恢复（严重事故）的现场，果断使用 <a href="http://en.cppreference.com/w/cpp/language/except_spec">dynamic exception specification</a></li>
+<li>区分异常的层次：</li>
+<li>none: 这个级别应该避免，不处理是不负责，代码可能在任何地方莫名 crash, 可能还会造成内存泄露。</li>
+<li>basic: 这是级别应该是下限，要保证，如果抛出异常，无内存泄漏，所有对象保持完整。</li>
+<li>strong: 这个级别的意思是：保证执行要么成功，要么抛出异常，且抛出异常时，能够保证数据状态的一致，并回退到执行前。</li>
+<li>nothrow/nofail: 执行必须成功。</li>
+<li>要保证 basic 层次，我觉得应该避免 raw pointer 的出现，坚持使用 smart pointer.</li>
+<li>strong 层次的异常要复杂一些，但如果你的代码一贯坚持 RAII，确保这个层次也并非难事。</li>
+<li>nothrow/nofail 的层次，在于你对代码逻辑的理解。如析构，就要坚决使用 <code>noexcept</code>.</li>
+</ul>
+<p>最后，提供一些更深入的资料：</p>
+<ul>
+<li><a href="https://isocpp.org/wiki/faq/exceptions#how-exceptions">Exceptions and Error Handling</a></li>
+<li><a href="http://stackoverflow.com/questions/1853243/c-do-you-really-write-exception-safe-code">C++: do you (really) write exception safe code?</a></li>
+<li><a href="http://www.boost.org/community/exception_safety.html">Lessons Learned from Specifying Exception-Safety for the C++ Standard Library</a></li>
+</ul>
+<blockquote>
+<p>本文由 <a href="https://github.com/pezy/">pezy</a> 创作，采用<a href="http://creativecommons.org/licenses/by/3.0/cn/">知识共享署名 3.0 中国大陆许可协议</a>进行许可。可自由转载、引用，但需署名作者且注明文章出处。</p>
+</blockquote>
+  </div>
+
+  <hr/>
+
+      <ul class="pager">
+        <li class="previous">
+          <a href="/2015/wo-de-github-pages-zhe-teng-shi.html">
+          &laquo; Newer</a>
+        </li>
+        <li class="next disabled">
+          <a >
+          Older &raquo;</a>
+        </li>
+      </ul>
+
+    <hr/>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+
+var disqus_config = function () {
+  this.page.url = '/2015/guan-yu-c-de-yi-chang.html';  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = 'guan-yu-c-de-yi-chang'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://devnotes-org.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+        <div class="row">
+        </div>
+
+      </div>
+
+      <div class="col-md-2">
+      </div>
+    </div>
+
+
+  </div>
+
+    <nav id="footer" class="navbar navbar-default">
+    <div class="container">
+        <p id="footer-text" class="navbar-text text-center">
+          <span id="engine">
+            Compiled using
+            <a href="http://docs.getpelican.com">Pelican</a>
+          </span>
+          <span id="theme">
+            with theme
+            <a href="http://github.com/yuex/pelican-chameleon">Chameleon</a>
+          </span>
+          <span id="bootstrap">
+            on top of
+            <a href="http://getbootstrap.com/">Bootstrap</a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </nav>
+
+
+</body>
+</html>

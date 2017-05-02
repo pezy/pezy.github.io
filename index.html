@@ -1,88 +1,862 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="chinese (simplified)">
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="pezy's homepage.">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <meta name="keywords" content="pezy, C++, blog">
-    <link rel="shortcut icon" href="res/favicon.png">
-    <link rel="stylesheet" href="css/typo.css"/>
-    <link rel="alternate" hreflang="zh-Hans" />
-    <title>pezy's homepage</title>
-    <style>
-        code{ color: #304f4e; }
-        a { color: #304f4e; border-bottom: 1px solid #0066bb !important; }
-        body { min-width: 200px; max-width: 790px; margin: 0 auto; padding: 30px; }
-        pre{white-space:pre-wrap;}
-        .un_styled { list-style-type: none !important; }
-        .nav { padding-left: 0; margin-bottom: 0; list-style: none; border-bottom: 3px double #eee; }
-        .nav li { display: inline-block; margin-left: 5px; margin-right: 5px; }
-        li time { color: #666; font-family: monospace; font-size: 14px; }
-        .header img { float: right; width: 72px; height: 72px; border-radius: 48px; }
-        .header h1 { position: relative; top: 10px; }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="devnotes">
+    <meta name="author" content="pezy">
+    <link rel="icon" type="image/png" href="/res/favicon.png">
 
-        .button { display: inline-block; height: 38px; padding: 0 25px; color: #555; text-align: center; font-size: 15px;
-            line-height: 38px; letter-spacing: .1rem; text-transform: uppercase; text-decoration: none;
-            white-space: nowrap; background-color: transparent; border-radius: 4px; border: 1px solid #bbb !important;
-            cursor: pointer; box-sizing: border-box; }
-        .button:hover, .button:focus { color: #333; border-color: #888; outline: 0; }
+        <title>devnotes</title>
 
-        i.serif{ text-transform:lowercase; color:#0066bb; }
-        :-moz-any() h1, h2, h3, h4, h5 i.serif{ text-transform: capitalize; }
-        i.serif:hover{ color:inherit; }
 
-        #wrapper{ padding:5% 10%; position:relative;}
-        #tag_line{ color:#999; font-size:1em; margin:-2em 0 2em; padding-bottom:2em; border-bottom:3px double #eee; }
-        #links{ position:relative; }
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-        @media only screen and (max-width: 640px) {
-            table{ word-break:break-all;word-wrap:break-word;font-size:12px; }
-            .typo table th, .typo table td, .typo-table th, .typo-table td .typo table caption {
-                padding: 0.5em;
-            }
-            .header img{ display:none; }
-            .header h1{ top: 0; }
-            #links{ display:none; }
-        }
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" type="text/css">
 
-        .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
-    </style>
+    <link rel="stylesheet" href="/theme/css/main.css">
+
+    <link rel="stylesheet" href="/theme/css/solarized-light.css">
+
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
-<a href="https://github.com/pezy/pezy.github.io" class="github-corner">
-  <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#0066bb; color:#fff; position: absolute; top: 0; border: 0; right: 0;">
-    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
-  </svg>
-</a>
-<div id="wrapper" class="typo typo-selection">
-    <div class="header">
-        <img src="res/me.jpg" alt="pezy">
-        <h1><i class="serif">pezy</i> 最近比较忙</h1><br/>
-        <h2 id="tag_line" class="serif">在能源领域越走越远。</h2>
+  <div class="container" id="wrap">
+      <nav id="navbar" class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+      <!--navbar-header-->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="">devnotes</a>
+      </div> <!--navbar-header-->
+
+      <!-- Search Box -->
+
+      <!--Menuitems, collapable-->
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right" id="menuitem-list">
+                <li class="active">
+                  <a href="/" >Home</a>
+                </li>
+
+              <li class="btn-group">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Archives<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li >
+                    <a href="/tags.html" >Tags</a>
+                  </li>
+                  <li >
+                    <a href="/categories.html" >Categories</a>
+                  </li>
+                  <li >
+                    <a href="/archives.html" >Chronological</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="btn-group">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li >
+                    <a href="http://blog.devnotes.org"     target="_blank"
+>old Blog</a>
+                  </li>
+                  <li >
+                    <a href="http://devnotes.org/diary"     target="_blank"
+>diary</a>
+                  </li>
+                  <li >
+                    <a href="../lab/reading.html" >reading</a>
+                  </li>
+                  <li >
+                    <a href="../lab/list.html" >list</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="btn-group">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li >
+                    <a href="mailto: pezy.dev@gmail.com" >Email</a>
+                  </li>
+                  <li >
+                    <a href="http://github.com/pezy"     target="_blank"
+>Github</a>
+                  </li>
+                  <li >
+                    <a href="https://www.zhihu.com/people/pezy"     target="_blank"
+>Zhihu</a>
+                  </li>
+                </ul>
+              </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div> <!--container-->
+  </nav>
+
+
+    <div class="container">
+      <div class="col-md-2">
+      </div>
+
+      <div class="col-md-8">
+        <div class="row">
+          
+        </div>
+
+        <div class="row">
+
+  <!--<script type="text/javascript">-->
+    <!--/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */-->
+    <!--var disqus_shortname = 'yuex'; // required: replace example with your forum shortname-->
+
+    <!--/* * * DON'T EDIT BELOW THIS LINE * * */-->
+    <!--(function () {-->
+    <!--var s = document.createElement('script'); s.async = true;-->
+    <!--s.type = 'text/javascript';-->
+    <!--s.src = '//' + disqus_shortname + '.disqus.com/count.js';-->
+    <!--(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);-->
+    <!--}());-->
+  <!--</script>-->
+
+  <div id="home_article_list" class="panel-group" id="accordion">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        <a href="/archives.html#Year2016">2016</a> - <a href="/archives.html#Year2016Month07">七月</a>
+      <a class="accordion-toggle" data-toggle="collapse" 
+        title="toggle folding"
+        href="#collapseArticle1">
+        <span class="pull-right badge">
+          #12
+        </span>
+      </a>
+      </div>
+
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
+        <a href="/2016/building-osgopenscenegraph-at-centos7.html">
+          <li class="list-group-item">
+            <h1>Building OSG(OpenSceneGraph) at CentOS7</h1>
+          </li>
+        </a>
+        <div class="collapse in"
+          id="collapseArticle1">
+          <li class="list-group-item">
+              <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/osg.html">osg</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month07">07</a>-<a href="/archives.html#Year2016Month07">19</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+            <a class="pull-right" href="/2016/building-osgopenscenegraph-at-centos7.html">
+              </a>
+          </li>
+          <li class="list-group-item"><h3>Prepare dependence environment</h3>
+<div class="highlight"><pre><span></span>yum install libpng-devel
+yum install libjpeg-devel
+yum install libtiff-dev
+yum install libungif-devel
+yum install freetype-devel
+yum install gdal-devel
+yum install libcurl-devel
+yum install SDL-devel
+yum install libgta-devel
+yum install gstreamer-devel
+yum install SDL2-devel
+yum install jasper-devel
+yum install gstreamer1-plugins-base-devel
+yum install poppler-glib-devel
+yum install librsvg2-devel
+yum install …</pre></div></li>
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/2016/building-osgopenscenegraph-at-centos7.html#disqus_thread" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="building-osgopenscenegraph-at-centos7">
+                </span></a>
+              <a class="btn btn-primary" href="/2016/building-osgopenscenegraph-at-centos7.html" title="permanent link">
+                <span class="glyphicon glyphicon-link"></span></a>
+              <a class="btn btn-primary" href="/2016/building-osgopenscenegraph-at-centos7.html" title="read more">
+                <span class="glyphicon glyphicon-resize-full"></span></a>
+            </div>
+          </li>
+        </div>
+      </ul>
     </div>
-    <div id="links" class="nav">
-    <ul>
-        <li><a class="button" href="/blog">博客</a></li>
-        <li><a class="button" href="/diary">日常</a></li>
-        <li><a class="button" href="reading.html">书单</a></li>
-        <li><a class="button" href="list.html">清单</a></li>
-        <li><a class="button" href="/love">纪念</a></li>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        <a href="/archives.html#Year2016">2016</a> - <a href="/archives.html#Year2016Month07">七月</a>
+      <a class="accordion-toggle" data-toggle="collapse" 
+        title="toggle folding"
+        href="#collapseArticle2">
+        <span class="pull-right badge">
+          #11
+        </span>
+      </a>
+      </div>
+
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
+        <a href="/2016/svn-chang-yong-ming-ling-xiao-ji.html">
+          <li class="list-group-item">
+            <h1>SVN 常用命令小记</h1>
+          </li>
+        </a>
+        <div class="collapse in"
+          id="collapseArticle2">
+          <li class="list-group-item">
+              <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/devops.html">devops</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month07">07</a>-<a href="/archives.html#Year2016Month07">15</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+            <a class="pull-right" href="/2016/svn-chang-yong-ming-ling-xiao-ji.html">
+              </a>
+          </li>
+          <li class="list-group-item"><p>最近经常需要在 Linux 下用 SVN 维护代码, 简单记录几个常用的命令:</p>
+<p>(commit, update, add 之类, 就不列出了)</p>
+<h3>增加忽略文件</h3>
+<p>编辑一个 txt 作为忽略文件的记录, 然后执行 <code>propset</code> 对当前目录进行设置:</p>
+<div class="highlight"><pre><span></span>svn propset svn:ignore ignore.txt .
+</pre></div>
+
+
+<p>千万注意最后一个点.</p>
+<p>还有一种更直接的方式编辑当前目录下的 ignore file:</p>
+<div class="highlight"><pre><span></span>svn propedit svn:ignore .
+</pre></div>
+
+
+<blockquote>
+<p>这里值得注意的是, 可能会出一个错误: <code>svn: E205007</code>. 需要在环境变量里设置一个 <code>SVN_EDITOR</code> , 譬如在 Linux 下我们常使用 vim 的话:</p>
+<p><code>sh
+vim ~/.bashrc
+export SVN_EDITOR=vim
+:wq …</code></p></blockquote></li>
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/2016/svn-chang-yong-ming-ling-xiao-ji.html#disqus_thread" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="svn-chang-yong-ming-ling-xiao-ji">
+                </span></a>
+              <a class="btn btn-primary" href="/2016/svn-chang-yong-ming-ling-xiao-ji.html" title="permanent link">
+                <span class="glyphicon glyphicon-link"></span></a>
+              <a class="btn btn-primary" href="/2016/svn-chang-yong-ming-ling-xiao-ji.html" title="read more">
+                <span class="glyphicon glyphicon-resize-full"></span></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        <a href="/archives.html#Year2016">2016</a> - <a href="/archives.html#Year2016Month06">六月</a>
+      <a class="accordion-toggle" data-toggle="collapse" 
+        title="toggle folding"
+        href="#collapseArticle3">
+        <span class="pull-right badge">
+          #10
+        </span>
+      </a>
+      </div>
+
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
+        <a href="/2016/password-generator.html">
+          <li class="list-group-item">
+            <h1>Password Generator</h1>
+          </li>
+        </a>
+        <div class="collapse in"
+          id="collapseArticle3">
+          <li class="list-group-item">
+              <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/dev.html">dev</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month06">06</a>-<a href="/archives.html#Year2016Month06">21</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+            <a class="pull-right" href="/2016/password-generator.html">
+              </a>
+          </li>
+          <li class="list-group-item"><p>都怪当初贪便宜，iPhone 选择的是最小容量，看着满屏幕的 app, 不知道该删掉哪一个。排在顶前面位置的，是 1Password，当初慕名下载，却用的并不多，关键还是觉得不保险——我这可是单机版，万一手机丢了，全部密码不都歇菜了？</p>
+<p>说起密码管理工具，从当年 CSDN 密码泄漏事件开始，我便开始反思一站式密码的弊端，明白了密码分级管理的必要性：银行卡等身家性命为最高等级，QQ，微信以及重要网站 app 为第一等级，普通却常用的网站为次一等，其他一些一次性注册的论坛等，为最低级。密码的规则依次简化，那时对密码管理的理解也就是这样的层次了。</p>
+<p>看了皓叔写的<a href="http://coolshell.cn/articles/2428.html">《如何管理并设计你的口令》</a> 后，更加热衷于定义各类密码组合规则，却发现走入另一个误区，随着帐号越来越多，记忆开始出现混淆，尤其是随着密码记忆功能的普及，越少次数的登陆导致对密码的逐步陌生。以至于有时急于登录某帐号，试了好几个密码都未能成功，甚至还会把自己的帐号锁住，实在让人哭笑不得。</p>
+<p>后来密码管理器的出现，的确帮我解决了一些问题。同时，云同步大行其道，手机上的 app …</p></li>
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/2016/password-generator.html#disqus_thread" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="password-generator">
+                </span></a>
+              <a class="btn btn-primary" href="/2016/password-generator.html" title="permanent link">
+                <span class="glyphicon glyphicon-link"></span></a>
+              <a class="btn btn-primary" href="/2016/password-generator.html" title="read more">
+                <span class="glyphicon glyphicon-resize-full"></span></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        <a href="/archives.html#Year2016">2016</a> - <a href="/archives.html#Year2016Month06">六月</a>
+      <a class="accordion-toggle" data-toggle="collapse" 
+        title="toggle folding"
+        href="#collapseArticle4">
+        <span class="pull-right badge">
+          #9
+        </span>
+      </a>
+      </div>
+
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
+        <a href="/2016/using-xmanager-to-connect-to-remote-centos-7-via-xdmcp.html">
+          <li class="list-group-item">
+            <h1>Using Xmanager to connect to remote CentOS 7 via XDMCP</h1>
+          </li>
+        </a>
+        <div class="collapse in"
+          id="collapseArticle4">
+          <li class="list-group-item">
+              <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/devops.html">devops</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month06">06</a>-<a href="/archives.html#Year2016Month06">08</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+            <a class="pull-right" href="/2016/using-xmanager-to-connect-to-remote-centos-7-via-xdmcp.html">
+              </a>
+          </li>
+          <li class="list-group-item"><ul>
+<li>Enable EPEL Repository:</li>
+</ul>
+<div class="highlight"><pre><span></span>wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-6.noarch.rpm
+rpm -ivh epel-release-7-6.noarch.rpm
+</pre></div>
+
+
+<ul>
+<li>install <code>lightdm</code>, <code>xfce</code> and configure it:</li>
+</ul>
+<div class="highlight"><pre><span></span>su -
+yum install lightdm <span class="o">&amp;&amp;</span> yum groupinstall xfce
+vi /etc/lightdm/lightdm.conf
+​<span class="sb">```</span>
+<span class="o">[</span>XDMCPServer<span class="o">]</span>
+<span class="nv">enabled</span><span class="o">=</span><span class="nb">true</span>
+user-session<span class="o">=</span>xfce
+​<span class="sb">```</span>
+</pre></div>
+
+
+<ul>
+<li>change the default display manager to …</li></ul></li>
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/2016/using-xmanager-to-connect-to-remote-centos-7-via-xdmcp.html#disqus_thread" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="using-xmanager-to-connect-to-remote-centos-7-via-xdmcp">
+                </span></a>
+              <a class="btn btn-primary" href="/2016/using-xmanager-to-connect-to-remote-centos-7-via-xdmcp.html" title="permanent link">
+                <span class="glyphicon glyphicon-link"></span></a>
+              <a class="btn btn-primary" href="/2016/using-xmanager-to-connect-to-remote-centos-7-via-xdmcp.html" title="read more">
+                <span class="glyphicon glyphicon-resize-full"></span></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        <a href="/archives.html#Year2016">2016</a> - <a href="/archives.html#Year2016Month05">五月</a>
+      <a class="accordion-toggle" data-toggle="collapse" 
+        title="toggle folding"
+        href="#collapseArticle5">
+        <span class="pull-right badge">
+          #8
+        </span>
+      </a>
+      </div>
+
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
+        <a href="/2016/osgopenscenegraph-de-chang-jing-jie-tu-gong-neng.html">
+          <li class="list-group-item">
+            <h1>OSG(OpenSceneGraph) 的场景截图功能</h1>
+          </li>
+        </a>
+        <div class="collapse in"
+          id="collapseArticle5">
+          <li class="list-group-item">
+              <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/osg.html">osg</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month05">05</a>-<a href="/archives.html#Year2016Month05">13</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+            <a class="pull-right" href="/2016/osgopenscenegraph-de-chang-jing-jie-tu-gong-neng.html">
+              </a>
+          </li>
+          <li class="list-group-item"><p>三维场景, 往往有截图保存的需求. 而 OSG 中也提供了 <code>ScreenCaptureHandler</code> 类来干这件事. 但美中不足的是, 该类构造函数虽然提供了 <code>CaptureOperation</code> 与 <code>numFrames</code> 两个参数, 但却没有接口来设置截图的方式. 只能接受预定的按键(<code>c</code>/<code>C</code>)截图.</p>
+<p>我想实现的, 是通过界面 tool bar button 来激发截图过程. 那么只好自己来实现一个源码以及 Example 中类似的类: <code>WindowCaptureCallback</code> 了.</p>
+<p>实际上, 直接把 <code>WindowCaptureCallback</code> 直接拿过来即可. 该类代码足够简单.</p>
+<p>但如果按照 Example 中的示例代码调用:</p>
+<div class="highlight"><pre><span></span><span class="c1">// Add the WindowCaptureCallback now that we have full resolution</span>
+<span class="n">GLenum</span> <span class="n">buffer</span> <span class="o">=</span> <span class="n">viewer</span><span class="p">.</span><span class="n">getCamera …</span></pre></div></li>
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/2016/osgopenscenegraph-de-chang-jing-jie-tu-gong-neng.html#disqus_thread" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="osgopenscenegraph-de-chang-jing-jie-tu-gong-neng">
+                </span></a>
+              <a class="btn btn-primary" href="/2016/osgopenscenegraph-de-chang-jing-jie-tu-gong-neng.html" title="permanent link">
+                <span class="glyphicon glyphicon-link"></span></a>
+              <a class="btn btn-primary" href="/2016/osgopenscenegraph-de-chang-jing-jie-tu-gong-neng.html" title="read more">
+                <span class="glyphicon glyphicon-resize-full"></span></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        <a href="/archives.html#Year2016">2016</a> - <a href="/archives.html#Year2016Month05">五月</a>
+      <a class="accordion-toggle" data-toggle="collapse" 
+        title="toggle folding"
+        href="#collapseArticle6">
+        <span class="pull-right badge">
+          #7
+        </span>
+      </a>
+      </div>
+
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
+        <a href="/2016/bi-li-chi-de-hui-zhi-si-lu.html">
+          <li class="list-group-item">
+            <h1>比例尺的绘制思路</h1>
+          </li>
+        </a>
+        <div class="collapse in"
+          id="collapseArticle6">
+          <li class="list-group-item">
+              <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/dev.html">dev</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month05">05</a>-<a href="/archives.html#Year2016Month05">10</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+            <a class="pull-right" href="/2016/bi-li-chi-de-hui-zhi-si-lu.html">
+              </a>
+          </li>
+          <li class="list-group-item"><p>一般来说, 地图上常见的比例尺有三种表现形式, 如下图所示:</p>
+<p><img alt="map_scale" src="..\img\map_scale.png">其中<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup>:</p>
+<ol>
+<li>a) 是文字表示法, 即<strong>直接用文字表述</strong>. 如这里是地图(底图)上的 1 cm 代表实际距离的 250 m.</li>
+<li>b) 是数值表示法, 即用<strong>比值</strong>来表示. 需要注意的是, 这种方式要确保<code>:</code>两侧的单位统一.</li>
+<li>c) 是图示表示法, 即绘制一把示意性的尺子直观的表达地图(底图)上的长度, 并标注上实际距离.(一般会取整数刻度)</li>
+</ol>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn-1">
+<p>https://docs.qgis.org/2.6/en/docs/gentle_gis_introduction/map_production.html&#160;<a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></li>
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/2016/bi-li-chi-de-hui-zhi-si-lu.html#disqus_thread" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="bi-li-chi-de-hui-zhi-si-lu">
+                </span></a>
+              <a class="btn btn-primary" href="/2016/bi-li-chi-de-hui-zhi-si-lu.html" title="permanent link">
+                <span class="glyphicon glyphicon-link"></span></a>
+              <a class="btn btn-primary" href="/2016/bi-li-chi-de-hui-zhi-si-lu.html" title="read more">
+                <span class="glyphicon glyphicon-resize-full"></span></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        <a href="/archives.html#Year2016">2016</a> - <a href="/archives.html#Year2016Month05">五月</a>
+      <a class="accordion-toggle" data-toggle="collapse" 
+        title="toggle folding"
+        href="#collapseArticle7">
+        <span class="pull-right badge">
+          #6
+        </span>
+      </a>
+      </div>
+
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
+        <a href="/2016/xie-zai-shi-tou-bian-shang.html">
+          <li class="list-group-item">
+            <h1>写在石头边上</h1>
+          </li>
+        </a>
+        <div class="collapse in"
+          id="collapseArticle7">
+          <li class="list-group-item">
+              <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/reading.html">reading</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month05">05</a>-<a href="/archives.html#Year2016Month05">06</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+            <a class="pull-right" href="/2016/xie-zai-shi-tou-bian-shang.html">
+              </a>
+          </li>
+          <li class="list-group-item"><h2>红楼梦开局写作手法与软件开发过程的关系</h2>
+<p>红楼梦此书奇，犹在其布局谋篇。荣宁二府，金陵十二钗，又各类主角，体系过于庞大，作者欲描绘全局，先从小处着眼。如一些不起眼的边角人物，甄士隐、贾雨村和冷子兴。同时，又是先用粗线条勾勒，后用工笔精描，如「冷子兴演说荣国府」便是明显的粗框。</p>
+<p>另有一点，更能从前两章体会，即作者<strong>收放自如</strong>，何时详何时略，实在见功夫。现在人，受微博、朋友圈影响，凡事都略写一二，这是「收」的过了头，就像简讯，看个几十条，会让人浮躁不堪，不明所以。而又有一部分，受博客、豆瓣、知乎的影响，随时长篇大论，恨不得事无巨细的交代，有时也会进入意识流，恨不得将心中林林总总的情绪发泄的干净（我也有此病）。这是「放」的过了头，容易忽略了主旨。故事动人，文字精妙 …</p></li>
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/2016/xie-zai-shi-tou-bian-shang.html#disqus_thread" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="xie-zai-shi-tou-bian-shang">
+                </span></a>
+              <a class="btn btn-primary" href="/2016/xie-zai-shi-tou-bian-shang.html" title="permanent link">
+                <span class="glyphicon glyphicon-link"></span></a>
+              <a class="btn btn-primary" href="/2016/xie-zai-shi-tou-bian-shang.html" title="read more">
+                <span class="glyphicon glyphicon-resize-full"></span></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        <a href="/archives.html#Year2016">2016</a> - <a href="/archives.html#Year2016Month04">四月</a>
+      <a class="accordion-toggle" data-toggle="collapse" 
+        title="toggle folding"
+        href="#collapseArticle8">
+        <span class="pull-right badge">
+          #5
+        </span>
+      </a>
+      </div>
+
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
+        <a href="/2016/fu-dian-shu-zhuan-zi-fu-chuan-hou-qu-diao-duo-yu-de-ling.html">
+          <li class="list-group-item">
+            <h1>浮点数转字符串后, 去掉多余的零</h1>
+          </li>
+        </a>
+        <div class="collapse in"
+          id="collapseArticle8">
+          <li class="list-group-item">
+              <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/gist.html">gist</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month04">04</a>-<a href="/archives.html#Year2016Month04">25</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+            <a class="pull-right" href="/2016/fu-dian-shu-zhuan-zi-fu-chuan-hou-qu-diao-duo-yu-de-ling.html">
+              </a>
+          </li>
+          <li class="list-group-item"><p>当数据用于显示的时候, 经常会遇到这样类似的需求. 今天先用 C++ 给一个简单的实现:</p>
+<div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">trimToString</span><span class="p">(</span><span class="kt">double</span> <span class="n">dValue</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">strRst</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">dValue</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">strRst</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">==</span> <span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="n">strRst</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strRst</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">==</span> <span class="sc">&#39;.&#39;</span><span class="p">)</span> <span class="n">strRst</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">strRst</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>考虑了三种情况的覆盖, 详细测试代码请见<a href="https://gist.github.com/pezy/33b6fb351cae8b8b820162a4e54ef0bf">这里</a>.</p>
+<p>欢迎补充.</p></li>
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/2016/fu-dian-shu-zhuan-zi-fu-chuan-hou-qu-diao-duo-yu-de-ling.html#disqus_thread" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="fu-dian-shu-zhuan-zi-fu-chuan-hou-qu-diao-duo-yu-de-ling">
+                </span></a>
+              <a class="btn btn-primary" href="/2016/fu-dian-shu-zhuan-zi-fu-chuan-hou-qu-diao-duo-yu-de-ling.html" title="permanent link">
+                <span class="glyphicon glyphicon-link"></span></a>
+              <a class="btn btn-primary" href="/2016/fu-dian-shu-zhuan-zi-fu-chuan-hou-qu-diao-duo-yu-de-ling.html" title="read more">
+                <span class="glyphicon glyphicon-resize-full"></span></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        <a href="/archives.html#Year2016">2016</a> - <a href="/archives.html#Year2016Month04">四月</a>
+      <a class="accordion-toggle" data-toggle="collapse" 
+        title="toggle folding"
+        href="#collapseArticle9">
+        <span class="pull-right badge">
+          #4
+        </span>
+      </a>
+      </div>
+
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
+        <a href="/2016/you-xu-shu-zu-lian-xu-ji-suan-zhong-wei-shu.html">
+          <li class="list-group-item">
+            <h1>有序数组连续计算中位数</h1>
+          </li>
+        </a>
+        <div class="collapse in"
+          id="collapseArticle9">
+          <li class="list-group-item">
+              <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/algorithm.html">algorithm</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month04">04</a>-<a href="/archives.html#Year2016Month04">22</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+            <a class="pull-right" href="/2016/you-xu-shu-zu-lian-xu-ji-suan-zhong-wei-shu.html">
+              </a>
+          </li>
+          <li class="list-group-item"><p>有一个需求, 是绘制坐标轴刻度时遇到的. 因为坐标轴刻度随时需要保证疏密得当, 所以有时会采取以下策略:</p>
+<ol>
+<li>获取总长度, 并根据首尾的刻度值, 计算中间可取整的刻度值, 如 1 - 78 中间, 可按 10 取整, 即 10, 20, 30 ... 70 这样.</li>
+<li>设一个刻度总和的变量 <code>sum</code>, 试探性的绘制位于中间的刻度, 并计算该刻度(字符串)在画布上的长度, 将该长度累加至 <code>sum</code>,  并与总长度比较. </li>
+<li>如果小于总长度, 绘制该刻度, 并借助首尾刻度, 以及该刻度, 继续求出两个刻度值. (位于首刻度与该刻度中间, 以及该刻度与尾刻度中间). 递归进入上一步骤.</li>
+<li>如果大于总长度, 则退出.</li>
+</ol>
+<p>这个问题可以抽象成, 给定一个有序序列(或直接指定一对 <code>min</code> 和 <code>max</code>), 要求输出每一次相邻数字的中位数.(如果相邻数字差距仅为 1, 则不必输出). 用一张图来表示即为 …</p></li>
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/2016/you-xu-shu-zu-lian-xu-ji-suan-zhong-wei-shu.html#disqus_thread" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="you-xu-shu-zu-lian-xu-ji-suan-zhong-wei-shu">
+                </span></a>
+              <a class="btn btn-primary" href="/2016/you-xu-shu-zu-lian-xu-ji-suan-zhong-wei-shu.html" title="permanent link">
+                <span class="glyphicon glyphicon-link"></span></a>
+              <a class="btn btn-primary" href="/2016/you-xu-shu-zu-lian-xu-ji-suan-zhong-wei-shu.html" title="read more">
+                <span class="glyphicon glyphicon-resize-full"></span></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        <a href="/archives.html#Year2016">2016</a> - <a href="/archives.html#Year2016Month04">四月</a>
+      <a class="accordion-toggle" data-toggle="collapse" 
+        title="toggle folding"
+        href="#collapseArticle10">
+        <span class="pull-right badge">
+          #3
+        </span>
+      </a>
+      </div>
+
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
+        <a href="/2016/ruan-jian-kai-fa-de-wei-cheng.html">
+          <li class="list-group-item">
+            <h1>软件开发的围城</h1>
+          </li>
+        </a>
+        <div class="collapse in"
+          id="collapseArticle10">
+          <li class="list-group-item">
+              <span id="article_info">
+    <a class="label label-primary" 
+      href="/category/Software.html">Software</a>
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+      <b> · </b>
+      <a href="/archives.html#Year2016">2016</a>-<a href="/archives.html#Year2016Month04">04</a>-<a href="/archives.html#Year2016Month04">13</a>
+
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+      <b> · </b>
+    <a href="/about.html">pezy</a>
+  </span>
+
+            <a class="pull-right" href="/2016/ruan-jian-kai-fa-de-wei-cheng.html">
+              </a>
+          </li>
+          <li class="list-group-item"><p>今天看到知乎上一篇有趣的文章<a href="http://zhuanlan.zhihu.com/p/20744178">《你要避免的软件开发模式》</a>, 的确是非常生动, 不知道你看完后中了几枪呢?</p>
+<p>我是全中.</p>
+<p>首先是 <code>IDD</code>, 即 <code>IDE</code> 驱动开发, 简直就是我的现状. 虽然我很长一段时间, 坚守节操的使用 <code>Vim</code> 作为我的主力编码工具, 无奈工作环境下, 就是统一用 <code>VS</code>. 工作有年头了, 自然极度熟悉 <code>VS</code>, 快捷键熟练的飞起, 无论是查看代码, 还是理解代码流程, 都觉得无比顺畅. 在这种情况下, 如果非要我改用 <code>shell</code> 下的编辑器, 并非做不到. 但是的确会极度痛苦, 就好比用过了机械键盘, 非要扔一边, 去使用普通键盘一样.</p>
+<p>然后是 <code>DDD</code>, 即面向调试器开发. 我一直觉得, 调试器是初学者利器. 一段代码, 把自己看的五荤八素的, 动手调试一番, 几个关键断点一打, 就会快速解决问题, 理解流程. 我曾经在 <code>Linux</code> 下坚持使用 <code>gdb</code> 很长一段时间 …</p></li>
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/2016/ruan-jian-kai-fa-de-wei-cheng.html#disqus_thread" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="ruan-jian-kai-fa-de-wei-cheng">
+                </span></a>
+              <a class="btn btn-primary" href="/2016/ruan-jian-kai-fa-de-wei-cheng.html" title="permanent link">
+                <span class="glyphicon glyphicon-link"></span></a>
+              <a class="btn btn-primary" href="/2016/ruan-jian-kai-fa-de-wei-cheng.html" title="read more">
+                <span class="glyphicon glyphicon-resize-full"></span></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+        </div>
+
+        <div class="row">
+      <ul class="pagination">
+
+        <li class="disabled">
+          <a>&laquo;</a>
+        </li>
+
+        <li class="active">
+          <a>1<span class="sr-only">(current)</span></a>
+        </li>
+        <li>
+          <a href="/index2.html">2<span class="sr-only">(current)</span></a>
+        </li>
+
+        <li>
+          <a href="index2.html">&raquo;</a>
+        </li>
+
     </ul>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-2">
+      </div>
     </div>
-    <h2><i class="serif">Notes</i></h2>
-    <ul class="un_styled"><li><time>2016-07-19</time> — <a href="note/Building-OSG-in-CentOS.html">在 CentOS7 上编译 OSG</a></li></ul>
-    <ul class="un_styled"><li><time>2016-07-15</time> — <a href="note/svn-usage.html">SVN 常用命令小记</a></li></ul>
-    <ul class="un_styled"><li><time>2016-06-21</time> — <a href="note/Password-Generator.html">我的密码管理器</a></li></ul>
-    <ul class="un_styled"><li><time>2016-06-08</time> — <a href="note/Using-Xmanager-to-connect-to-remote-CentOS7-via-XDMCP.html">使用 Xmanager 通过 XDMCP 的方式远程访问 CentOS 7</a></li></ul>
-    <ul class="un_styled"><li><time>2016-05-13</time> — <a href="note/Screenshot-in-OSG.html">OSG 的场景截图功能</a></li></ul>
-    <ul class="un_styled"><li><time>2016-05-10</time> — <a href="note/scale-on-map.html">比例尺的绘制思路</a></li></ul>
-    <ul class="un_styled"><li><time>2016-04-25</time> — <a href="cpp/trim-to-string.html">浮点数转字符串后去掉多余的零</a></li></ul>
-    <ul class="un_styled"><li><time>2016-04-22</time> — <a href="note/calculate-median-list-in-range.html">有序数组连续计算中位数</a></li></ul>
-    <ul class="un_styled"><li><time>2016-04-13</time> — <a href="note/besieged-city.html">软件开发的围城</a></li></ul>
-    <ul class="un_styled"><li><time>2015-05-28</time> — <a href="front-end/my-github-pages-history.html">我的 <i class="serif">Github Pages</i> 折腾史</a></li></ul>
-    <ul class="un_styled"><li><time>2015-05-25</time> — <a href="cpp/cpp-exception.html">关于 <i class="serif">C++</i> 的异常</a></li></ul>
-</div>
+
+
+  </div>
+
+    <nav id="footer" class="navbar navbar-default">
+    <div class="container">
+        <p id="footer-text" class="navbar-text text-center">
+          <span id="engine">
+            Compiled using
+            <a href="http://docs.getpelican.com">Pelican</a>
+          </span>
+          <span id="theme">
+            with theme
+            <a href="http://github.com/yuex/pelican-chameleon">Chameleon</a>
+          </span>
+          <span id="bootstrap">
+            on top of
+            <a href="http://getbootstrap.com/">Bootstrap</a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </nav>
+
+
 </body>
 </html>
