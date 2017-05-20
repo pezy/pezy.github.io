@@ -27,18 +27,15 @@
                 var col = "<div class='col-md-3'><div class='panel panel-info'><div class='panel-heading'>" + group["category"] + "</div>";
                 col += "<div class='panel-body'><div class='list-group'>";
                 $.each(group["list"], function (key, value) {
-                    col += "<a href=" + value + " target='_blank' class='list-group-item'>" + key + "</a>";
+                    col += "<a href=" + value + " target='_blank' class='list-group-item";
+                    if (value === '#') col += " list-group-item-warning'><span class='badge'>link error</span>" + key + "</a>";
+                    else col += "'>" + key + "</a>";
                 });
                 col += "</div></div></div></div>";
                 $(col).appendTo(".row");
             });
         });
     </script>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
 </html>
