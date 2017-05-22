@@ -23,20 +23,25 @@
     </div>
 
     <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
         $.getJSON("data/tools.json", function (data) {
             $.each(data, function (index, group) {
-                var col = "<div class='col-md-3'><div class='panel panel-info'><div class='panel-heading'>" + group["category"] + "</div>";
+                var col = "<div class='col-md-4'><div class='panel panel-info'><div class='panel-heading'>" + group["category"] + "</div>";
                 col += "<div class='panel-body'><div class='list-group'>";
                 $.each(group["list"], function (key, value) {
-                    col += "<a href=" + value + " target='_blank' class='list-group-item";
-                    if (value === '#') col += " list-group-item-warning'><span class='badge'>link error</span>" + key + "</a>";
-                    else col += "'>" + key + "</a>";
+                    col += "<a href=" + value["link"] + " target='_blank' data-toggle='tooltip' title='" + value["brief"] + "' class='list-group-item'>" + key;
+                    if (value.hasOwnProperty("mark"))
+                        col += "<span class='badge'>" + value["mark"] + "</span>";
+                    col += "</a>";
                 });
                 col += "</div></div></div></div>";
                 $(col).appendTo(".row");
             });
         });
     </script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -2,36 +2,161 @@
     {
         "category": "研发环境",
         "list": {
-            "Visual Studio 2015": "http://msdn.itellyou.cn",
-            "Qt 5.8.0": "http://download.qt.io/official_releases/qt/5.8/5.8.0/qt-opensource-windows-x86-msvc2015_64-5.8.0.exe",
-            "Office": "http://msdn.itellyou.cn",
-            "svn": "https://tortoisesvn.net/downloads.html",
-            "visual svn": "https://www.visualsvn.com/visualsvn/download/",
-            "7zip": "http://www.7-zip.org/download.html",
-            "chrome": "https://www.google.com/chrome/",
-            "WhiteStarUML": "https://sourceforge.net/projects/whitestaruml/files/",
-            "Visual C++ Redistributable for Visual Studio 2015": "https://www.microsoft.com/en-us/download/details.aspx?id=48145"
+            "Visual Studio 2015": {
+                "link": "http://msdn.itellyou.cn",
+                "brief": "Visual Studio developer tools"
+            },
+            "Qt 5.8.0": {
+                "link": "http://download.qt.io/official_releases/qt/5.8/5.8.0/qt-opensource-windows-x86-msvc2015_64-5.8.0.exe",
+                "brief": "Cross-platform software development for embedded & desktop"
+            },
+            "Microsoft Office": {
+                "link": "http://msdn.itellyou.cn",
+                "brief": "Word, Excel, and PowerPoint"
+            },
+            "SVN": {
+                "link": "https://tortoisesvn.net/downloads.html",
+                "brief": "open source version control system"
+            },
+            "VisualSVN": {
+                "link": "https://www.visualsvn.com/visualsvn/download/",
+                "brief": "a reliable plug-in that integrates Subversion seamlessly with Visual Studio"
+            },
+            "7zip": {
+                "link": "http://www.7-zip.org/download.html",
+                "brief": "a file archiver with a high compression ratio"
+            },
+            "chrome": {
+                "link": "https://www.google.com/intl/en/chrome/browser/desktop/index.html?standalone=1",
+                "brief": "A fast, secure, and free web browser built for the modern web"
+            },
+            "WhiteStarUML": {
+                "link": "https://sourceforge.net/projects/whitestaruml/files/",
+                "brief": "UML modeling tool derived from StarUML compatible with Windows 7-10"
+            },
+            "git": {
+                "link": "https://git-scm.com/",
+                "brief": "a free and open source distributed version control system"
+            },
+            "python": {
+                "link": "https://www.python.org/downloads/",
+                "brief": "Python Programming Language"
+            },
+            "Visual C++ Redistributable for Visual Studio 2015": {
+                "link": "https://www.microsoft.com/en-us/download/details.aspx?id=48145",
+                "brief": "run-time components that are required to run C++ applications"
+            }
+        }
+    },
+    {
+        "category": "Windows系统辅助工具",
+        "list": {
+            "Everything": {
+                "link": "https://www.voidtools.com/downloads/",
+                "brief": "bypasses Windows search"
+            },
+            "geekuninstaller": {
+                "link": "https://www.geekuninstaller.com/",
+                "brief": "deep and fast scanning afterwards and removes all leftovers"
+            },
+            "Greenfish Icon Editor Pro": {
+                "link": "https://portableapps.com/apps/graphics_pictures/greenfish-icon-editor-pro-portable",
+                "brief": "a powerful icon, cursor, animation and icon library editor"
+            },
+            "Rapid Environment Editor": {
+                "link": "https://www.rapidee.com/en/download",
+                "brief": "Windows environment variables management",
+                "mark": "Win7"
+            },
+            "virtual drive master": {
+                "link": "http://download.csdn.net/detail/qq_33255369/9327371",
+                "brief": "虚拟光驱软件",
+                "mark": "Win7"
+            },
+            "Recuva": {
+                "link": "https://www.piriform.com/recuva/builds",
+                "brief": "Restore deleted files quickly and for free"
+            },
+            "Rufus": {
+                "link": "https://rufus.akeo.ie/downloads/",
+                "brief": "Create bootable USB drives the easy way"
+            },
+            "Notepad++": {
+                "link": "https://notepad-plus-plus.org/download",
+                "brief": "a free source code editor and Notepad replacement that supports several languages"
+            },
+            "PSPad": {
+                "link": "http://www.pspad.com/en/download.php",
+                "brief": "a freeware programmer's editor"
+            },
+            "Lantern": {
+                "link": "https://getlantern.org/lantern-installer.exe",
+                "brief": "better than a VPN"
+            },
+            "Pot Player": {
+                "link": "http://get.daum.net/PotPlayer64/Version/Latest/PotPlayerSetup64.exe",
+                "brief": "multimedia player",
+                "mark": "Win7"
+            },
+            "Typora": {
+                "link": "https://typora.io/windows/typora-setup-x64.exe",
+                "brief": "a minimal markdown reading & writing app"
+            },
+            "Sumatra PDF": {
+                "link": "https://www.sumatrapdfreader.org/download-free-pdf-viewer.html",
+                "brief": "a PDF, ePub, MOBI, CHM, XPS, DjVu, CBZ, CBR reader for Windows"
+            },
+            "驱动精灵": {
+                "link": "http://www.drivergenius.com/",
+                "brief": "最全最专业的驱动工具",
+                "mark": "小心广告"
+            },
+            "迅雷纯净版": {
+                "link": "http://down.sandai.net/thunderspeed/ThunderSpeed1.0.33.358.exe",
+                "brief": "迅雷最后的良心"
+            }
         }
     },
     {
         "category": "行业软件",
         "list": {
-            "json": "#",
-            "petrel2014": "#",
-            "petrel09": "#",
-            "xdk": "#",
-            "seisee": "http://www.softpedia.com/get/Science-CAD/SeiSee.shtml"
+            "Jason": {
+                "link": "http://www.cgg.com/jason/",
+                "brief": "Advanced Seismic Reservoir Characterization"
+            },
+            "Petrel": {
+                "link": "https://www.software.slb.com/products/petrel",
+                "brief": "a software platform used in the exploration and production sector of the petroleum industry"
+            },
+            "Geomodeling Studio": {
+                "link": "https://geomodeling.com/product/",
+                "brief": "Core-to-Seismic Multi-Scale Modeling and Reservoir Characterization Software"
+            },
+            "SeiSee": {
+                "link": "http://www.dmng.ru/en/freeware.html",
+                "brief": "program shows seismic data in SEG-Y, CWP/SU, CGG CST format"
+            }
         }
     },
     {
-        "category": "常用工具",
+        "category": "开源工具",
         "list": {
-            "git": "https://git-scm.com/",
-            "Everything": "https://www.voidtools.com/downloads/",
-            "geekuninstaller": "https://www.geekuninstaller.com/",
-            "GreenfishIconEditorProPortable": "https://portableapps.com/apps/graphics_pictures/greenfish-icon-editor-pro-portable",
-            "RapidEE_setup": "https://www.rapidee.com/en/download",
-            "virtual drive master": "http://download.csdn.net/detail/qq_33255369/9327371"
+            "Shadowsocks": {
+                "link": "https://github.com/shadowsocks/shadowsocks-windows/releases",
+                "brief": "A fast tunnel proxy that helps you bypass firewalls"
+            },
+            "Pandoc": {
+                "link": "https://github.com/jgm/pandoc/releases",
+                "brief": "convert files from one markup format into another"
+            },
+            "LICEcap": {
+                "link": "http://www.cockos.com/licecap/",
+                "brief": "simple animated screen captures"
+            },
+            "Zeal": {
+                "link": "https://zealdocs.org/download.html",
+                "brief": "an offline documentation browser for software developers"
+            }
         }
     }
 ]
