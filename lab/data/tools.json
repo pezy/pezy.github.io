@@ -10,6 +10,10 @@
                 "link": "http://download.qt.io/official_releases/qt/5.8/5.8.0/qt-opensource-windows-x86-msvc2015_64-5.8.0.exe",
                 "brief": "Cross-platform software development for embedded & desktop"
             },
+            "Qt VS Addin": {
+                "link": "https://visualstudiogallery.msdn.microsoft.com/c89ff880-8509-47a4-a262-e4fa07168408_/file/162291/22/QtPackage.vsix",
+                "brief": "Fully functional repeats Qt VS Addin"
+            },
             "Microsoft Office": {
                 "link": "http://msdn.itellyou.cn",
                 "brief": "Word, Excel, and PowerPoint"
@@ -41,6 +45,10 @@
             "python": {
                 "link": "https://www.python.org/downloads/",
                 "brief": "Python Programming Language"
+            },
+            "Visual Studio Code": {
+                "link": "https://code.visualstudio.com/Download",
+                "brief": "Code editing. Redefined. Free. Open source. Runs everywhere."
             },
             "Visual C++ Redistributable for Visual Studio 2015": {
                 "link": "https://www.microsoft.com/en-us/download/details.aspx?id=48145",
