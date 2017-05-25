@@ -11,7 +11,7 @@
                 "brief": "Cross-platform software development for embedded & desktop"
             },
             "Qt VS Addin": {
-                "link": "https://visualstudiogallery.msdn.microsoft.com/c89ff880-8509-47a4-a262-e4fa07168408_/file/162291/22/QtPackage.vsix",
+                "link": "https://marketplace.visualstudio.com/items?itemName=havendv.QtPackage",
                 "brief": "Fully functional repeats Qt VS Addin"
             },
             "Microsoft Office": {
@@ -42,9 +42,17 @@
                 "link": "https://git-scm.com/",
                 "brief": "a free and open source distributed version control system"
             },
-            "python": {
-                "link": "https://www.python.org/downloads/",
-                "brief": "Python Programming Language"
+            "Anaconda": {
+                "link": "https://www.continuum.io/downloads",
+                "brief": "the leading open data science platform powered by Python."
+            },
+            "NodeJS": {
+                "link": "https://nodejs.org/en/",
+                "brief": "a JavaScript runtime built"
+            },
+            "CMake": {
+                "link": "https://cmake.org/download/",
+                "brief": "an open-source, cross-platform family of tools designed to build, test and package software"
             },
             "Visual Studio Code": {
                 "link": "https://code.visualstudio.com/Download",
@@ -53,6 +61,10 @@
             "Visual C++ Redistributable for Visual Studio 2015": {
                 "link": "https://www.microsoft.com/en-us/download/details.aspx?id=48145",
                 "brief": "run-time components that are required to run C++ applications"
+            },
+            "Dependency": {
+                "link": "http://www.dependencywalker.com/",
+                "brief": "a free utility that scans any 32-bit or 64-bit Windows module (exe, dll, ocx, sys, etc.)"
             }
         }
     },
@@ -122,6 +134,10 @@
             "迅雷纯净版": {
                 "link": "http://down.sandai.net/thunderspeed/ThunderSpeed1.0.33.358.exe",
                 "brief": "迅雷最后的良心"
+            },
+            "QQ TIM": {
+                "link": "http://tim.qq.com/",
+                "brief": "轻聊的QQ, 更方便的办公"
             }
         }
     },
@@ -164,6 +180,27 @@
             "Zeal": {
                 "link": "https://zealdocs.org/download.html",
                 "brief": "an offline documentation browser for software developers"
+            },
+            "ImageMagick": {
+                "link": "https://www.imagemagick.org/script/download.php",
+                "brief": "create, edit, compose, or convert bitmap images"
+            }
+        }
+    },
+    {
+        "category": "数据库工具",
+        "list": {
+            "Firebird": {
+                "link": "https://www.firebirdsql.org/en/server-packages/",
+                "brief": "True universal open source database"
+            },
+            "MySQL": {
+                "link": "https://dev.mysql.com/downloads/mysql/5.5.html#downloads",
+                "brief": "MySQL Community Edition is a freely downloadable version of the world's most popular open source database"
+            },
+            "MySQL Connectors": {
+                "link": "https://dev.mysql.com/downloads/connector/",
+                "brief": "standard database driver connectivity for using MySQL with applications"
             }
         }
     }
