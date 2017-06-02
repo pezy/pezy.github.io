@@ -5,7 +5,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="devnotes">
     <meta name="author" content="pezy">
-    <link rel="icon" type="image/png" href="http://devnotes.org/res/favicon.png">
+    <link rel="icon" type="image/png" href="/res/favicon.png">
 
         <title>The Pit of mkdocs in traditional field · devnotes</title>
 
@@ -16,9 +16,9 @@
 
     <link rel="stylesheet" href="//cdn.bootcss.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" type="text/css">
 
-    <link rel="stylesheet" href="http://devnotes.org/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
 
-    <link rel="stylesheet" href="http://devnotes.org/theme/css/solarized-light.css">
+    <link rel="stylesheet" href="/theme/css/solarized-light.css">
 
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -42,7 +42,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="http://devnotes.org">devnotes</a>
+        <a class="navbar-brand" href="">devnotes</a>
       </div> <!--navbar-header-->
 
       <!-- Search Box -->
@@ -51,7 +51,7 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right" id="menuitem-list">
                 <li >
-                  <a href="http://devnotes.org/" >Home</a>
+                  <a href="/" >Home</a>
                 </li>
 
               <li class="btn-group">
@@ -59,13 +59,13 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                   <li >
-                    <a href="http://devnotes.org/tags.html" >Tags</a>
+                    <a href="/tags.html" >Tags</a>
                   </li>
                   <li >
-                    <a href="http://devnotes.org/categories.html" >Categories</a>
+                    <a href="/categories.html" >Categories</a>
                   </li>
                   <li >
-                    <a href="http://devnotes.org/archives.html" >Chronological</a>
+                    <a href="/archives.html" >Chronological</a>
                   </li>
                 </ul>
               </li>
@@ -127,7 +127,7 @@
       <div class="col-md-8">
         <div class="row">
               <div class="page-header">
-        <h1><a href="http://devnotes.org/2017/the-pit-of-mkdocs-in-traditional-field.html">The Pit of mkdocs in traditional field</a></h1>
+        <h1><a href="/2017/the-pit-of-mkdocs-in-traditional-field.html">The Pit of mkdocs in traditional field</a></h1>
     </div>
 
         </div>
@@ -136,10 +136,10 @@
 
     <span id="article_info">
     <a class="label label-primary" 
-      href="http://devnotes.org/category/devops.html">devops</a>
+      href="/category/devops.html">devops</a>
     <!--<span class="glyphicon glyphicon-calendar"></span>-->
       <b> · </b>
-      <a href="http://devnotes.org/archives.html#Year2017">2017</a>-<a href="http://devnotes.org/archives.html#Year2017Month05">05</a>-<a href="http://devnotes.org/archives.html#Year2017Month05">16</a>
+      <a href="/archives.html#Year2017">2017</a>-<a href="/archives.html#Year2017Month05">05</a>-<a href="/archives.html#Year2017Month05">16</a>
 
     <!--<span class="glyphicon glyphicon-user"></span>-->
       <b> · </b>
@@ -152,7 +152,7 @@
     <p>如果在 Google 中输入 "project documentation markdown" 这几个关键字, 排在第一位的就是 MkDocs.</p>
 <p>加之对此早有耳闻, 故产品发布前, 我向团队直接推荐了这个工具.</p>
 <p>但在使用过程中, 还是不可避免的遇到了很多坑.</p>
-<h3>离线文档</h3>
+<h1>离线文档</h1>
 <p>也许 MkDocs 的初衷, 是部署在 github page 或 Amazon S3 的在线文档. 本质上就是一个托管文档的网站. 这样的好处是明显的, 只要打开浏览器, 连上互联网, 就可以随时看到. 如果是开源软件, 则更有利于开发者贡献或改进(类似 wiki).</p>
 <p>然而, 对传统企业的产品手册而言, 要求在不联网的时候, 依然可以用浏览器查看.</p>
 <p>对此, 有两种解决方案:</p>
@@ -165,7 +165,7 @@
 </pre></div>
 
 
-<h3>MathJax</h3>
+<h1>MathJax</h1>
 <p>有了离线文档这个需求, 就给后续很多事情带来了麻烦. 譬如文档中涉及公示渲染, 会用到大名鼎鼎的 MathJax(Latex 语法). 如果是在线文档, 这很容易:</p>
 <div class="highlight"><pre><span></span>markdown_extensions:
     - mdx_math
@@ -206,7 +206,7 @@ extra_javascript:
 
 
 <p>这样一来, 就可以直接对 HTML 模版进行修改了. 在 my_theme 目录中找到 base.html, 然后大概在 <code>&lt;script src="{{ base_url }}/js/highlight.pack.js"&gt;&lt;/script&gt;</code> 下面增加上述 JS 代码即可.</p>
-<h3>Markdown 的坑</h3>
+<h1>Markdown 的坑</h1>
 <p>责任得明确, 接下来遇到的这个问题, 与 Mkdocs 无关, 应该由 Markdown 来负责. 那就是指定图片大小的接口, 似乎在 Markdown 的语法中毫无体现. 王垠也在其<a href="http://www.yinwang.org/blog-cn/2013/04/14/markdown">博客</a>中讨论过该事.</p>
 <p>恰好我们产品文档中有这么一个需求: 在行文过程中, 插入一些 icon 来说明功能. 这个需求其实非常普遍, 在 Word 等工具中也非常好实现. 但 Markdown 却会将一切图片一视同仁, 当你用 <code>![]()</code> 的方式插入 icon 时, 行间距将会被拉大, 以至于整段文字非常难看.</p>
 <p>还好 MkDocs 提供了 extra.css 的接口, 我可以很方便的自定义一些标签的 CSS. 例如针对上述问题, 我在 extra.css 中加入以下代码:</p>
@@ -224,13 +224,13 @@ extra_javascript:
 <p>而且由于该类编辑器往往做的精细, 外观选取的 CSS 模版皆是精雕细琢. Mackdocs 相比之下, 就显得过于朴素了. 这样有意无意的对比, 也会让人搞不清重点, 又回到了 Word 的老路上.</p>
 <p>毕竟要比所见即所得, 谁也拼不过 Word 不是?</p>
 <p>反正我现在写 Markdown 都直接用 VSCode 了, 顺带一个 markdownlint 插件, 用来提示你不规范的写法. 就足够直观可控了.</p>
-<h3>跳转的坑</h3>
+<h1>跳转的坑</h1>
 <p>其实 Markdown 是提供跳转的, 我最早用到这个功能, 是在 Github 上, 写 README 或 wiki 的时候. 当时觉得很方便, 但在这次写文档时, 才觉得功能过于简陋了.</p>
 <p>首先, Markdown 只提供了针对标题的跳转, 是在 URL 后面加上 <code>#HeaderName</code> 的方式. 但实际书写过程中, 我们经常需要跳转到某图片, 如写到"请见图12", 结果图12和目前正文隔得老远, 跳转一下很有必要. 在 Markdown 里做到此事就比较痛苦. 变通的方式是, 在图12的前面加一个不起眼的五级标题 <code>#####图12</code>, 然后在行文超链接里写 <code>[图12](#图12)</code>. 才能勉强实现需求.</p>
 <p>其次, Markdown 的标题跳转没有特别严格的规定. 如在 Typora 中, 如果你的标题里有空格, 而在超链接的地方, 你把标题内容 copy 过来(含有空格), 也可以跳转. 但在 MkDocs 里, 这样的操作, 就无法跳转. 查看生成的 HTML 才得知, MkDocs 会将你的标题(如果是英文)先全部转小写, 然后将空格转为<code>-</code>. 这样你 copy 过来的内容就跟标题不一致了, 当然就无法实现跳转了...</p>
 <p>这样的设计很无语, 因为写文档时, 我们无法像程序一样自动转换这个标题, 步骤通常是将标题 copy 到超链接处, 然后修改标题, 看到大写转小写, 看到空格转<code>-</code>. 不用几次, 就会觉得超级繁琐. 我当时无奈之下写了一个 python 脚本来自动转换. 但仍然省不了好几次的 copy-paste. 正确的做法, 应该是 MkDocs 扫描 Markdown 的时候, 遇到链接中的文字, 也进行一次自动转换, 让其与最终标题保持一致. 我想有时间, 我应该向 MkDocs 提这么一个 pull request...</p>
 <hr>
-<p>上述几点, 是记忆深刻的. 也许还有一些细节让人并不满意, 但也无法逐一记录下来了. 开源工具日新月异, 层出不穷, 但能够真正投入日常工作的, 寥寥无几. 在调研的时候, 不能光看其文档之华丽, 还应该躬行一番, 验证一下, 以免后患无穷. 当然, 开源的要义在于 free(自由), 如果你对它不满, 你就应该改进它. 上述这些坑, 有些是因为<strong><a href="#离线文档">离线文档</a></strong>这个古老的需求与互联网常见场景不匹配造成的, 但有些的确是 MkDocs 做的不够完美的地方. 上述"坑"只为与我类似的用户提个醒, 接下来还需努力尝试去修复它. 让这类工具可以真正运用在我们日常的开发过程中, 而不至于麻烦不断.</p>
+<p>上述几点, 是记忆深刻的. 也许还有一些细节让人并不满意, 但也无法逐一记录下来了. 开源工具日新月异, 层出不穷, 但能够真正投入日常工作的, 寥寥无几. 在调研的时候, 不能光看其文档之华丽, 还应该躬行一番, 验证一下, 以免后患无穷. 当然, 开源的要义在于 free(自由), 如果你对它不满, 你就应该改进它. 上述这些坑, 有些是因为离线文档这个古老的需求与互联网常见场景不匹配造成的, 但有些的确是 MkDocs 做的不够完美的地方. 上述"坑"只为与我类似的用户提个醒, 接下来还需努力尝试去修复它. 让这类工具可以真正运用在我们日常的开发过程中, 而不至于麻烦不断.</p>
   </div>
 
   <hr/>
@@ -241,7 +241,7 @@ extra_javascript:
           &laquo; Newer</a>
         </li>
         <li class="next">
-          <a href="http://devnotes.org/2016/building-osgopenscenegraph-at-centos7.html">
+          <a href="/2016/building-osgopenscenegraph-at-centos7.html">
           Older &raquo;</a>
         </li>
       </ul>
@@ -256,7 +256,7 @@ extra_javascript:
 */
 
 var disqus_config = function () {
-  this.page.url = 'http://devnotes-orghttp://devnotes.org/2017/the-pit-of-mkdocs-in-traditional-field.html';  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.url = 'http://devnotes-org/2017/the-pit-of-mkdocs-in-traditional-field.html';  // Replace PAGE_URL with your page's canonical URL variable
   this.page.identifier = 'the-pit-of-mkdocs-in-traditional-field'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 
