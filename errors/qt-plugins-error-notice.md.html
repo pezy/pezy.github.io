@@ -1,0 +1,21 @@
+<meta charset="utf-8" emacsmode="-*- markdown -*-"><link rel="stylesheet" href="../apidoc.css">
+                **请一定注意 Qt 的 plugins dll**
+
+## 在对方 windows 操作系统的机器上无法运行
+
+请检查在你的发布包里是否包含 **platforms** 目录下的那些 dll, 通常来讲至少要有 `qwindows.dll`.
+
+!!! WARNING
+    尤其要注意: **platforms** 这个文件夹也一定要存在于打包文件夹内.
+
+## 序列化图片时出现加载失败的问题
+
+请回忆一下是否用到某种专门的图像格式, 如比较常见的 `png` 和 `jpeg` 等. 
+如果用到了，打包时就需要检查是否包含了 **imageformats** 目录下的那些 dll，同样的, 该目录也一样要存在.
+
+!!! Note
+    在确保源码一致的情况下, 出现不同的现象, 一定要考虑到所依赖的 dll 文件是否一致.
+    这也就要求, 使用每一个 Qt 的 API, 都要清楚所用到的对应 dll 是哪些.
+    出现问题也就不会如无头苍蝇一般摸不着头绪了.
+
+<!-- Markdeep: --><script src="../markdeep.min.js"></script>
