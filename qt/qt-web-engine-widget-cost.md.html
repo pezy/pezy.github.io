@@ -1,0 +1,29 @@
+<meta charset="utf-8" emacsmode="-*- markdown -*-"><link rel="stylesheet" href="../apidoc.css">
+                **QtWebEngineWidget 的代价**
+
+如果想在应用里引入一个小的浏览器来显示网页，Qt 给出非常简单的解决方案：
+
+```cpp
+QWebEngineView *view = new QWebEngineView(parent);
+view->load(QUrl("http://qt-project.org/"));
+view->show();
+```
+
+而且打包时，你以为只需要 Qt5WebEngineWidgets.dll 即可。
+
+!!! WARNING 
+    不要太天真，这几句话需要的 dll 如下：
+    
+    - Qt5Network.dll
+    - Qt5Positioning.dll
+    - Qt5PrintSupport.dll
+    - Qt5Qml.dll
+    - Qt5Quick.dll
+    - Qt5QuickWidgets.dll
+    - Qt5WebChannel.dll
+    - Qt5WebEngineCore.dll
+    - Qt5WebEngineWidgets.dll
+
+这是相当巨大的全家桶了，无论你要不要，全家赠送哦。
+
+<!-- Markdeep: --><script src="../markdeep.min.js"></script>
