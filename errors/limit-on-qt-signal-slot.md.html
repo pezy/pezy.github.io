@@ -1,0 +1,34 @@
+<meta charset="utf-8" emacsmode="-*- markdown -*-"><link rel="stylesheet" href="../apidoc.css">
+                **Qt 信号槽的诡异限制**
+                
+首先要搞清 `connect` 方法最后一个参数（Qt::ConnectionType）的含义：
+
+1. 默认为 Qt::AutoConnection，如果接收者也在发送者的线程中，则相当于 Qt::DirectConnection; 否则相当于 Qt::QueuedConnection; 该类型只有在 `emit` 的时候才决定。
+2. Qt::DirectConnection, 基本就属于纯回调函数了。接收者与发送者在同一线程。
+3. Qt::QueuedConnection, 当控制权回到接收者线程的 event loop 时，调用槽函数。故而槽函数是在接收者线程中执行的。
+4. Qt::BlockingQueueConnection, 和 Qt::QueuedConnection 类似，除了发送者会在槽返回前一直阻塞，这个连接千万不能用于接收者与发送者在同一线程的情况，否则有死锁的风险。
+5. Qt::UniqueConnection, 是一个标记位，可以按位或来结合上述任意连接类型。当该标记位被设置时，同样的连接再次调用 `connect` 的时候会失败。
+
+综上所述，实际上 2是**回调**，相当于你直接调用槽函数；3 是**异步调用**，信号槽可以分属于不同的线程，是非常常用的一种情况；4 是**同步调用**，信号槽必须分属不同线程，通过信号量或者条件机制来限制调用顺序。
+
+但比较坑爹的是，介绍完上述连接类型后，Qt 文档悄然写下如下限制：
+
+!!! WARNING
+    With queued connections, the parameters must be of types that are known to **Qt's meta-object system**, because Qt needs to copy the arguments to store them in an event behind the scenes.
+
+也就是在我们最最常用的连接类型（3）的情况下，对于信号槽的参数类型，是有限制的，必须得是 meta-object type.
+
+于是今天我就碰到一种诡异的，死活连接不上的情况：因为我用了 `const std::string&` 作为了信号槽的参数。
+
+如果你使用的是 QtCreator，运行时会爆出警告信息：
+
+```sh
+QObject::connect: Cannot queue arguments of type 'std::string'
+(Make sure 'std::string' is registered using qRegisterMetaType().)
+```
+
+但是如果你使用 Visual Studio 的话，基本上很难看到这个警告了。。。
+
+改成 `QString` 作为参数，问题得到解决。
+
+<!-- Markdeep: --><script src="../markdeep.min.js"></script>
