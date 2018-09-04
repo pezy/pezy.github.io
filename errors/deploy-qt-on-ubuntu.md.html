@@ -1,0 +1,48 @@
+<meta charset="utf-8" emacsmode="-*- markdown -*-"><link rel="stylesheet" href="../apidoc.css">
+
+                **在 Ubuntu 上发布 Qt + OSG 应用的注意事项**
+
+!!! Note
+    首先强调常识：遇到依赖库不对的问题，先用 `ldd` 来排查。
+
+## 对于 Qt 主库，需要注意，一些快捷方式也要拷贝
+
+举例说明: `libQt5Core.so.5.8.0` 是实际的动态链接库，但同样需要拷贝 `libQt5Core.so.5` 这个快捷方式到执行目录下。
+
+## 注意一些 linux 下的特殊依赖
+
+- `libicudata.so`
+- `libicui18n.so`
+- `libicuuc.so`
+
+依然要注意第一条（"一式两份"）
+
+## 注意 plugins 的拷贝
+
+- plugins
+  - platforms
+    - libqxcb.so
+  - xcbglintegrations (用到 OpenGL 少不了)
+    - libqxcb-egl-integration.so
+    - libqxcb-glx-integration.so
+  - imageformats (用到图像格式处理少不了)
+    - libqjpeg.so
+    
+整个层级结构最好保留。
+    
+由于 `libqxcb.so` 这个东西还会依赖两个动态链接库，所以无论是否用到，都要加上：
+
+- libQt5DBus.so
+- libQt5XcbQpa.so
+
+## `ldd` 发现默认寻找的是系统的 Qt 库，或报错如下: `This application failed to start because it could not find or load the Qt platform plugin "xcb"
+in "".`
+
+请为你的应用加一个启动脚本:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+export LD_LIBRARY_PATH=`pwd`
+./your-exe
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<!-- Markdeep: --><script src="../markdeep.min.js"></script>
