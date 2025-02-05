@@ -1,2 +1,3 @@
-# pezy.github.io
-blog
+# pezy link blog
+
+- [About link blog](links/about.md)
