@@ -197,4 +197,18 @@ code {
 .highlight .c  { color: #6a737d; } /* 注释 */
 .highlight .o  { color: #d73a49; } /* 运算符 */
 .highlight .p  { color: #24292e; } /* 标点符号 */
-.highlight .cm { color: #6a737d; font-style: italic; } /* 多行注释 */ 
+.highlight .cm { color: #6a737d; font-style: italic; } /* 多行注释 */
+
+/* 导航栏 */
+.site-title {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.site-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+} 

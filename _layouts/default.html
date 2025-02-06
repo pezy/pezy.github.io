@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/dtun.svg' | relative_url }}">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
     <header>
         <nav>
-            <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+            <a href="{{ '/' | relative_url }}" class="site-title">
+                <img src="{{ '/assets/dtun.svg' | relative_url }}" alt="DTun" class="site-logo">
+                <span>{{ site.title }}</span>
+            </a>
             <div class="nav-links">
                 <a href="{{ '/archive' | relative_url }}">归档</a>
                 <a href="{{ '/about' | relative_url }}">关于</a>
