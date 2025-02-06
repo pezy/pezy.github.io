@@ -1,13 +1,13 @@
-title: pezy blog      
+title: pezy blog
 description: a link blog
 author: pezy
 email: urbancpz@gmail.com
 
-timezone: Asia/Shanghai     
-date_format: "%Y-%m-%d"     
+timezone: Asia/Shanghai
+date_format: "%Y-%m-%d"
 
-permalink: /:year/:month/:day/:title/  
-excerpt_separator: <!--more-->         
+permalink: /:year/:month/:day/:title/
+excerpt_separator: <!--more-->
 
 markdown: kramdown
 kramdown:
@@ -22,11 +22,3 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
-
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor
-  - .git
-  - README.md
