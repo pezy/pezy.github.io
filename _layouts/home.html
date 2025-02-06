@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<div class="post-list">
+    {% for post in paginator.posts %}
+    <article class="post-item">
+        <h2>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: site.date_format }}
+        </time>
+        {% if post.excerpt %}
+        <div class="excerpt">
+            {{ post.excerpt }}
+        </div>
+        {% endif %}
+    </article>
+    {% endfor %}
+
+    {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; 上一页</a>
+        {% endif %}
+
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}">下一页 &raquo;</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div> 

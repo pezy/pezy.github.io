@@ -1,0 +1,200 @@
+/* 基础样式 */
+:root {
+    --main-color: #2c3e50;
+    --meta-color: #95a5a6;
+    --link-color: #3498db;
+    --border-color: #eee;
+    --code-bg: #f6f8fa;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.5;
+    color: var(--main-color);
+    font-size: 16px;
+}
+
+/* 布局 */
+header, main, footer {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 导航栏 */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-links a {
+    margin-left: 1rem;
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+/* 文章列表 */
+.post-item {
+    margin-bottom: 3rem;
+}
+
+.post-item h2 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.post-item time {
+    display: block;
+    margin: 0.5rem 0 1rem;
+    color: var(--meta-color);
+    font-size: 0.9rem;
+}
+
+/* 引用 */
+blockquote {
+    margin: 1rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--meta-color);
+}
+
+/* 链接 */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+/* 页脚 */
+footer {
+    margin-top: 4rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--meta-color);
+    font-size: 0.9rem;
+}
+
+/* 文章页面 */
+.post-header h1 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.6rem;
+}
+
+.post-content {
+    margin-bottom: 1.5rem;
+}
+
+.post-content h1 {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.8rem;
+}
+
+.post-content h2 {
+    font-size: 1.2rem;
+    margin: 1.2rem 0 0.6rem;
+}
+
+.post-content p {
+    margin: 0.6rem 0;
+}
+
+/* 引用样式 */
+blockquote > p {
+    margin: 0;
+    color: var(--meta-color);
+}
+
+blockquote a {
+    color: var(--meta-color);
+    word-break: break-all;
+}
+
+/* 分页 */
+.pagination {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+/* 归档页面样式 */
+.archive {
+    margin-top: 1rem;
+}
+
+.archive h2 {
+    margin: 1.5rem 0 0.8rem 0;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1.2rem;
+}
+
+.archive ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.archive li {
+    margin: 0.3rem 0;
+    display: flex;
+    align-items: baseline;
+}
+
+.archive time {
+    color: var(--meta-color);
+    font-size: 0.9rem;
+    min-width: 4rem;         /* 固定时间戳的宽度 */
+    margin-right: 1.5rem;    /* 增加时间和标题之间的间距 */
+}
+
+/* 正文样式 */
+p {
+    margin: 0.8rem 0;
+}
+
+h2 {
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.2rem;
+}
+
+ul {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin: 0.3rem 0;
+}
+
+/* 代码样式 */
+pre {
+    background: var(--code-bg);
+    padding: 0.8rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 0.8rem 0;
+}
+
+code {
+    font-family: 'SF Mono', Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 0.9rem;
+}
+
+:not(pre) > code {
+    background: var(--code-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
+
+/* 代码高亮主题 */
+.highlight .k  { color: #d73a49; } /* 关键字 */
+.highlight .s  { color: #032f62; } /* 字符串 */
+.highlight .n  { color: #24292e; } /* 变量名 */
+.highlight .c  { color: #6a737d; } /* 注释 */
+.highlight .o  { color: #d73a49; } /* 运算符 */
+.highlight .p  { color: #24292e; } /* 标点符号 */
+.highlight .cm { color: #6a737d; font-style: italic; } /* 多行注释 */ 

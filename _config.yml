@@ -1,5 +1,4 @@
-title: pezy blog
-description: a link blog
+title: "DTun: Data Tunnel"
 author: pezy
 email: urbancpz@gmail.com
 
@@ -13,6 +12,8 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
 
 paginate: 5
 paginate_path: "/page:num/"
@@ -22,3 +23,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
+
+sass:
+  style: compressed
