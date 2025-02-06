@@ -46,6 +46,10 @@ nav {
 .post-item h2 {
     margin: 0;
     font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .post-item time {
@@ -211,4 +215,58 @@ code {
     width: 24px;
     height: 24px;
     margin-right: 0.5rem;
+}
+
+/* 标签样式 */
+.tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    margin: 0.2rem;
+    border-radius: 3px;
+    background: var(--code-bg);
+    color: var(--meta-color);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.tag span {
+    color: var(--meta-color);
+    font-size: 0.8rem;
+}
+
+.tag:hover {
+    background: var(--border-color);
+}
+
+/* 标签页样式 */
+.tag-cloud {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: var(--code-bg);
+    border-radius: 4px;
+}
+
+.tag-section {
+    margin: 2rem 0;
+}
+
+.tag-section h2 {
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-tags {
+    margin-top: 0.5rem;
+}
+
+.post-item .post-tags {
+    display: inline-flex;
+    gap: 0.3rem;
+}
+
+.post-item .tag {
+    font-size: 0.8rem;
+    padding: 0.1rem 0.4rem;
+    margin: 0;
+    vertical-align: middle;
 } 

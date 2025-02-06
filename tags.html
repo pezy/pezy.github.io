@@ -1,0 +1,27 @@
+---
+layout: default
+title: 标签
+---
+
+<div class="tags-page">
+  {% assign tags = site.tags | sort %}
+  <div class="tag-cloud">
+    {% for tag in tags %}
+      <a href="#{{ tag[0] }}" class="tag">{{ tag[0] }} <span>{{ tag[1].size }}</span></a>
+    {% endfor %}
+  </div>
+
+  {% for tag in tags %}
+    <section id="{{ tag[0] }}" class="tag-section">
+      <h2>{{ tag[0] }}</h2>
+      <ul>
+        {% for post in tag[1] %}
+          <li>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.date_format }}</time>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+</div> 

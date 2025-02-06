@@ -6,6 +6,13 @@ layout: default
     <article class="post-item">
         <h2>
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% if post.tags %}
+            <span class="post-tags">
+                {% for tag in post.tags %}
+                <a href="{{ '/tags#' | append: tag | relative_url }}" class="tag">{{ tag }}</a>
+                {% endfor %}
+            </span>
+            {% endif %}
         </h2>
         <time datetime="{{ post.date | date_to_xmlschema }}">
             {{ post.date | date: site.date_format }}
