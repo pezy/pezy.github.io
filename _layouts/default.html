@@ -6,6 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ '/assets/dtun.svg' | relative_url }}">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
 </head>
 <body>
     <header>
@@ -14,6 +15,13 @@
                 <img src="{{ '/assets/dtun.svg' | relative_url }}" alt="DTun" class="site-logo">
                 <span>{{ site.title }}</span>
             </a>
+            <div class="search-container">
+                <div class="search-trigger">
+                    <input type="text" id="search-input" placeholder="搜索文章...">
+                    <kbd class="shortcut-hint">⌘K</kbd>
+                </div>
+                <div id="search-results"></div>
+            </div>
             <div class="nav-links">
                 <a href="{{ '/archive' | relative_url }}">归档</a>
                 <a href="{{ '/tags' | relative_url }}">标签</a>
@@ -29,5 +37,51 @@
     <footer>
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }}. All rights reserved.</p>
     </footer>
+
+    <script>
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('search-results'),
+            json: '{{ "/search.json" | relative_url }}',
+            searchResultTemplate: '<div class="search-item">' +
+                '<a href="{url}"><h3>{title}</h3></a>' +
+                '<time>{date}</time>' +
+                '<p>{content}</p>' +
+                '</div>',
+            noResultsText: '没有找到相关文章',
+            limit: 10,
+            fuzzy: false
+        });
+
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        searchInput.addEventListener('input', function() {
+            if (this.value.length > 0) {
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                document.getElementById('search-input').focus();
+            }
+            
+            if (e.key === 'Escape') {
+                document.getElementById('search-input').blur();
+                document.getElementById('search-results').style.display = 'none';
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            const searchContainer = document.querySelector('.search-container');
+            if (!searchContainer.contains(e.target)) {
+                document.getElementById('search-results').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html> 

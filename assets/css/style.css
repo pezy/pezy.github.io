@@ -26,7 +26,8 @@ header, main, footer {
 /* 导航栏 */
 nav {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
     padding: 1rem 0;
     margin-bottom: 3rem;
     border-bottom: 1px solid var(--border-color);
@@ -269,4 +270,123 @@ code {
     padding: 0.1rem 0.4rem;
     margin: 0;
     vertical-align: middle;
+}
+
+/* 搜索框样式 */
+.search-container {
+    flex-grow: 1;
+    max-width: 300px;
+    position: relative;
+}
+
+.search-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+#search-input:focus {
+    border-color: var(--link-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.shortcut-hint {
+    position: absolute;
+    right: 8px;
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--meta-color);
+    pointer-events: none;
+}
+
+#search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-top: 4px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#search-input:focus + #search-results,
+#search-results:hover {
+    display: block;
+}
+
+.search-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-item:last-child {
+    border-bottom: none;
+}
+
+.search-item h3 {
+    margin: 0 0 5px 0;
+    color: #007bff;
+}
+
+.search-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 搜索结果高亮 */
+.search-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* 导航栏响应式设计 */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .site-title {
+        flex: 1;
+    }
+
+    .search-container {
+        order: 3;  /* 搜索框放到第三行 */
+        flex: 1 1 100%;  /* 占满整行 */
+        max-width: none;
+        margin-top: 0.5rem;
+    }
+
+    .nav-links {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        margin-left: 0.8rem;
+    }
+
+    /* 移动端隐藏快捷键提示 */
+    .shortcut-hint {
+        display: none;
+    }
 } 
