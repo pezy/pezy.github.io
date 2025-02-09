@@ -64,9 +64,29 @@ nav {
 
 /* 引用 */
 blockquote {
-  margin: 1rem 0;
-  padding-left: 1rem;
+  margin: 0.5rem 0;
+  padding: 0.3rem 0.5rem;
   border-left: 3px solid var(--meta-color);
+  background: var(--code-bg);
+}
+
+/* 特殊处理包含链接的引用 */
+blockquote > p > a:only-child {
+  display: block;
+  padding: 0.3rem;
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 4px;
+  color: #1976d2;
+  font-family: monospace;
+  word-break: break-all;
+  transition: all 0.2s ease;
+}
+
+/* 鼠标悬停效果 */
+blockquote > p > a:only-child:hover {
+  background: #bbdefb;
+  text-decoration: none;
 }
 
 /* 链接 */
