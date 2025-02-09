@@ -430,3 +430,21 @@ code {
     display: none;
   }
 }
+
+/* 文章元信息样式 */
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--meta-color);
+    font-size: 0.9rem;
+}
+
+/* 隐藏未加载完成的访问量 */
+#busuanzi_container_page_pv {
+    display: none;  /* 默认隐藏 */
+}
+
+#busuanzi_container_page_pv[data-show] {
+    display: inline;  /* 加载完成后显示 */
+}
