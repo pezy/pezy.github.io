@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "腾讯云限时一个月免费使用 DeepSeek-R1 671B API"
-date: 2025-02-09
 tags: [腾讯云, 云服务, 免费]
 ---
 

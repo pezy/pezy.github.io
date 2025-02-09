@@ -85,6 +85,6 @@ node screenshot.js https://news.ycombinator.com/item?id=42965267
 - <https://github.com/topics/visual-regression> Github 的话题
 - <https://testplane.io> 其中一个很直观易用的回归测试工具
 
-以及，还有需要有趣的 app 也需要依赖上述讨论的网页截图：
+以及，还有一些有趣的 app 也需要依赖上述讨论的网页截图：
 
 - <https://www.getchangelog.com> 看起来很棒的 changelog 监测订阅工具
