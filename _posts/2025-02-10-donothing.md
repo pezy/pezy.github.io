@@ -181,7 +181,7 @@ def provision_user(ctx):
 
 同样的流程，我们如果对 shell 足够熟悉（AI 加持下完全不是问题），可以写一个 `justfile` 来做这件事:
 
-```ini
+```makefile
 default: provision-user
 
 init:
