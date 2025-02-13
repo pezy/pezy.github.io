@@ -125,3 +125,56 @@ while True:
 ```
 
 而且输出的速度巨慢，可能与量化精度有关？
+
+---
+
+我初步怀疑，直接使用 Transformer 这种通用、功能丰富的加载器，可能会有很多动态检查、自动调度以及不太针对推理优化的工作，这将是导致启动和解析龟速的一个原因。
+
+我还是应该尝试主流的 GGUF 格式。
+
+先写一个简单的转换脚本，转为 `pytorch` 的 `safetensors` 格式:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+
+# 加载模型和分词器
+model_name = "agentica-org/DeepScaleR-1.5B-Preview"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+# 将模型保存为 PyTorch 格式
+output_dir = "deepscaler_model"
+model.save_pretrained(output_dir, safe_serialization=True)  # 使用 safetensors 格式
+tokenizer.save_pretrained(output_dir)
+```
+
+然后就可以利用 `llama.cpp` 的 `convert_hf_to_gguf.py` 转换为 GGUF 格式:
+
+```sh
+python llama.cpp/convert_hf_to_gguf.py deepscaler_model --outfile deepscaler_model.gguf
+```
+
+拿到 `GGUF` 模型后，我以为就可以利用 `ollama` 轻松运行了:
+
+```sh
+ollama start
+ollama create deepscaler_model.gguf
+```
+
+结果给我来了个:
+
+```sh
+parsing GGUF
+Error: supplied file was not in GGUF format
+```
+
+咨询了下 ChatGPT，可能是 DeepScaleR 是基于 `qwen2` 而来，而 `ollama` 并无法直接支持 `qwen2` 的模型。
+
+突然想到 `Jan` 对 `qwen2` 的模型支持还可以，于是用 `Jan` 加载了一下这个 `gguf`，果然直接可用了。
+
+解析输出速度巨快。
+
+不过我发现，中文问答会出一些岔子，回答完问题后会自行解析一个算术题。很是莫名其妙。
+
+但对于英文问题，表现基本是比较稳定的。不过要说跟 o1-preview 比，我个人觉得在推理方面，还是有不小差距的。就不知道专业的 PK 具体是如何进行的了。
