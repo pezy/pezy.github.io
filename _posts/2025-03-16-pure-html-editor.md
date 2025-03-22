@@ -32,7 +32,7 @@ tags: [note, tools]
 
 不客气的 fork 了它，也可以在自己的域名下访问了:
 
-> <https://dtun.org/writings/>
+> <https://writings.dtun.org>
 
 ----
 
