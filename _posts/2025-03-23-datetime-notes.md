@@ -37,3 +37,23 @@ note() {
 简洁，但有力。我会在 Obsidian 里专门建一个 DailyNotes.md，然后利用上述命令记录日常。
 
 坚持记录，后面的事情，交给 AI 吧。
+
+----
+
+更新：
+
+上述命令虽然简洁，但始终都是往后追加内容，但根据最近 karpathy 大神的分享:
+
+> <https://karpathy.bearblog.dev/the-append-and-review-note/>
+
+追加笔记最好是插入在头部，所以我们借助 `sed` 改进一版：
+
+```sh
+note() {
+    sed -i '' '1i\
+'"$(date "+%Y-%m-%d %H:%M:%S") $*"'
+' notes
+}
+```
+
+这样就更加完美结合了日期时间笔记与追加回顾笔记的双重理念了。
