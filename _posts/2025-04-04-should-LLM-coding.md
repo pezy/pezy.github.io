@@ -62,3 +62,43 @@ LLM, FSD 这些东西对于我们生活的影响就像是吸毒，一旦产生�
 3. 对于 ChatGPT（or other 聊天类 LLM），你得清楚，它是你**信息搜集**的新工具（类似历史上的搜索引擎与互联网），但绝不能代替你思考。
 4. 细节有 LLM 来实现了（具体的函数、算法的实现），那么你一定要把省下的精力留给对**原理**的探索上，至少它是如何实现的，必须得看明白，且透彻理解。
 5. 工具可以让你走的更快，但往哪走，以及能走到哪里，它永远帮不上忙。
+
+----
+
+额外的一些启发：
+
+> <https://royalicing.com/2025/test-driven-vibes>
+
+测试驱动我觉得非常非常适合 LLM Coding，但测试用例的确得完全有自己来设计清楚。这一点在 golang, python 中尤其方便。
+
+更多高阶技巧:
+
+> <https://manuel.kiessling.net/2025/03/31/how-seasoned-developers-can-achieve-great-results-with-ai-coding-agents/>
+
+启发：
+
+- 把架构设计也写在代码的 Markdown 中（可能来自于你与 LLM 的多轮对话），然后亲自整理概括，明确目标与规范。
+
+如: <https://github.com/dx-tooling/platform-problem-monitoring-core/blob/main/docs/REQUIREMENTS.md>
+
+起名叫 `REQUIREMENTS.md` 或者 `SPEC.md` 我觉得都很贴切。里面大概包含这些内容：
+
+1. 需求是什么（必须明确，清晰，一句话说清楚输入输出）
+2. 用例设计与背景信息（前因后果，业务流程现状）
+3. 功能要求
+4. 架构要求：技术栈，限制，性能要求
+5. 格式化、规范化
+6. 更详细的模块设计（每一个模块的输入、输出、职责）
+7. 代码质量要求与实践
+
+- 工具的保护
+
+如: <https://github.com/dx-tooling/platform-problem-monitoring-core/blob/main/Makefile>
+
+创建这样的 Makefile，供 LLM 使用。做好格式化、lint、各种静态扫描。
+
+- 接口要自己定
+
+1. 命名
+2. API 设计
+3. 核心代码框架先自己写出来
